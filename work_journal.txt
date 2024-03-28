@@ -1,0 +1,14 @@
+#####################################
+Work Journal: Genome Analysis project
+#####################################
+
+Working on right know: Step 1, preprocessing and FastQC
+What's been done: Ran the FastQC analysis successfully for 1 sample
+Next step: Make a script for the program to automatically analyze all DNA and untrimmed RNA
+
+#####################################
+2024-03-28
+Finished the project plan
+Started the FastQC analysis
+Managed to run one sample
+Moved files back and forth
