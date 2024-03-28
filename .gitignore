@@ -1,1 +1,12 @@
+# Files for GitHub to ignore
 
+# Raw data
+*.fastq.gz
+*.fasta.gz
+
+# Intermediate and result files
+*.BAM
+*.SAM
+
+# Logs
+Log_files/*
