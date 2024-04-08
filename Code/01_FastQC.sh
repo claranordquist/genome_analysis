@@ -13,3 +13,13 @@
 
 # Example of run (that worked)
 # fastqc -o /home/claran/genome_analysis/Analyses/01_Data_preprocessing/011_QC_trimmed_DNA -t 2 SRR4342129_1.paired.trimmed.fastq.gz
+
+######################################
+#!/bin/bash
+INPUT_FOLDER=/home/claran/genome_analysis/Data/Raw_data/DNA_trimmed
+OUTPUT_FOLDER=/home/claran/genome_analysis/Analyses/01_Data_preprocessing/011_QC_trimmed_DNA
+
+for SAMPLE in $INPUT_FOLDER/*
+do
+  fastqc -o OUTPUT_FOLDER -t 2 $SAMPLE
+done
