@@ -39,5 +39,5 @@ module load bioinfo-tools FastQC/0.11.9
 # Run the analyses
 for SAMPLE in $INPUT_FOLDER/*
 do
-  fastqc -o OUTPUT_FOLDER -t 2 $SAMPLE
+  fastqc -o $OUTPUT_FOLDER -t 2 $SAMPLE
 done
