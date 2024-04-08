@@ -2,9 +2,9 @@
 Work Journal: Genome Analysis project
 #####################################
 
-Working on right know: Step 1, preprocessing and FastQC
-What's been done: Ran the FastQC analysis successfully for 1 sample
-Next step: Make a script for the program to automatically analyze all DNA and untrimmed RNA
+Working on right know: Step 1, RNA trimming
+What's been done: A first script to try the Trimmomatic software
+Next step: Figure out why the script doesn't work
 
 #####################################
 2024-03-28
@@ -12,3 +12,8 @@ Finished the project plan
 Started the FastQC analysis
 Managed to run one sample
 Moved files back and forth
+
+2024-04-08
+Ran the FastQC for the trimmed DNA and untrimmed RNA
+Downloaded the HTML results to my computer
+Started working on the RNA trimming. Have a test script to try (but it doesn’t work). Gives an error stating that the ILLUMINACLIP command is not found (why??)
