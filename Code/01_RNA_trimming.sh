@@ -1,3 +1,17 @@
+#!/bin/bash -l
+
+#SBATCH -A uppmax2024-2-7
+#SBATCH -M snowy
+#SBATCH -p core
+#SBATCH -n 2
+#SBATCH t- 00:30:00
+#SBATCH -J trimming_RNA
+#SBATCH --mail-type=ALL
+#SBATCH --mail-user clara.nordquist.1217@student.uu.se
+#SBATCH --output=%x.%j.out
+
+######################################
+
 # Trimmomatic
 # Script to trim adapters and low-quality bases from the RNA reads
 
@@ -16,18 +30,6 @@
 # java -jar <path to trimmomatic.jar> PE -threads <n> -trimlog <logfile> STEP:args
 
 ######################################
-# Formal stuff
-#!/bin/bash -l
-
-#SBATCH -A uppmax2024-2-7
-#SBATCH -M snowy
-#SBATCH -p core
-#SBATCH -n 2
-#SBATCH t- 00:30:00
-#SBATCH -J trimming_RNA
-#SBATCH --mail-type=ALL
-#SBATCH --mail-user clara.nordquist.1217@student.uu.se
-#SBATCH --output=%x.%j.out
 
 # Defining the folders
 INPUT_FOLDER=/home/claran/genome_analysis/Data/Raw_data/RNA_untrimmed
