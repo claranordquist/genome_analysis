@@ -30,8 +30,8 @@
 # SBATCH --output=%x.%j.out
 
 # Defining the folders
-INPUT_FOLDER=/home/claran/genome_analysis/Data/Raw_data/DNA_trimmed
-OUTPUT_FOLDER=/home/claran/genome_analysis/Analyses/01_Data_preprocessing/011_QC_trimmed_DNA
+INPUT_FOLDER=/home/claran/genome_analysis/Data/Raw_data/RNA_untrimmed
+OUTPUT_FOLDER=/home/claran/genome_analysis/Analyses/01_Data_preprocessing/012_QC_untrimmed_RNA
 
 # Module loading
 module load bioinfo-tools FastQC/0.11.9
