@@ -2,9 +2,18 @@
 Work Journal: Genome Analysis project
 #####################################
 
-Working on right know: Step 1, RNA trimming
-What's been done: A first script to try the Trimmomatic software
-Next step: Figure out why the script doesn't work
+Working on right know: Step 1 (RNA trimming), step 2 (assembly)
+What's been done: RNA trimming is finished, started working on the megahit script
+Next step: Continue on the assembly, run FastQC on the trimmed RNA
+
+#####################################
+Questions:
+Trimmomatic
+- Which of the output files should be kept/used? (forward/reverse paired/unpaired)
+Megahit
+- Should all the samples be pooled before assembly? (organisms from both high- and low-oxygen environments)
+They do in the paper, but why?
+- The paper mentions two parameters for their assembly (-pre_correction and -seed_kmer 55) but I can't find the corresponding for Megahit. Will that be a problem?
 
 #####################################
 2024-03-28
@@ -17,3 +26,7 @@ Moved files back and forth
 Ran the FastQC for the trimmed DNA and untrimmed RNA
 Downloaded the HTML results to my computer
 Started working on the RNA trimming. Have a test script to try (but it doesn’t work). Gives an error stating that the ILLUMINACLIP command is not found (why??)
+
+2024-04-09
+Ran the Trimmomatic analysis
+Started working on the megahit assembly
