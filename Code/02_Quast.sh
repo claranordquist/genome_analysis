@@ -14,6 +14,7 @@
 
 # Quast
 # To evaluate the metagenome assembly
+# https://quast.sourceforge.net/docs/manual.html#sec2.4
 
 # Input: contigs from the metagenome assembly
 # Output: stats
