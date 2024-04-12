@@ -23,15 +23,15 @@
 # SBATCH --reservation=uppmax2024-2-7_3
 # SBATCH -p core
 # SBATCH -n 2
-# SBATCH t- 00:30:00
+# SBATCH -t 00:30:00
 # SBATCH -J fastQC_trimmed_DNA
 # SBATCH --mail-type=ALL
 # SBATCH --mail-user clara.nordquist.1217@student.uu.se
 # SBATCH --output=%x.%j.out
 
 # Defining the folders
-INPUT_FOLDER=/home/claran/genome_analysis/Data/Raw_data/RNA_untrimmed
-OUTPUT_FOLDER=/home/claran/genome_analysis/Analyses/01_Data_preprocessing/012_QC_untrimmed_RNA
+INPUT_FOLDER=/home/claran/genome_analysis/Data/Trimmed_RNA
+OUTPUT_FOLDER=/home/claran/genome_analysis/Analyses/01_Data_preprocessing/014_QC_trimmed_RNA
 
 # Module loading
 module load bioinfo-tools FastQC/0.11.9
