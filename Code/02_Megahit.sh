@@ -20,8 +20,13 @@
 # --k-min 65
 # --k-max 105
 # --k-step 10
-# can't find precorrection
-# can't find seed k-mer
+
+# I'll also specify that two threads should be used by
+# -t 2
+
+# I cannot find the corresponding megahit parameters for
+# precorrection (perform pre-correction before assembly)
+# seed k-mer (seed kmer size for alignment)
 
 # Input: fastq files from the trimmed DNA reads
 # Output: fasta file with contigs
@@ -40,9 +45,7 @@ OUTPUT_FOLDER=/home/claran/genome_analysis/Analyses/02_Assembly/021_Metagenome_a
 # Module loading
 module load bioinfo-tools megahit/1.2.9
 
-megahit --k-min 65 --k-max 105 --k-step 10 --kmin-1pass \
--1 $INPUT_FOLDER/SRR4342129_1.paired.trimmed.fastq.gz -2 $INPUT_FOLDER/SRR4342129_2.paired.trimmed.fastq.gz -o $OUTPUT_FOLDER/SRR4342129_megahit
-
-megahit --k-min 65 --k-max 105 --k-step 10 --kmin-1pass \
--1 $INPUT_FOLDER/SRR4342133_1.paired.trimmed.fastq.gz -2 $INPUT_FOLDER/SRR4342133_2.paired.trimmed.fastq.gz -o $OUTPUT_FOLDER/SRR4342133_megahit
-
+megahit -t 2 --k-min 65 --k-max 105 --k-step 10 --kmin-1pass \
+-1 $INPUT_FOLDER/SRR4342129_1.paired.trimmed.fastq.gz $INPUT_FOLDER/SRR4342133_1.paired.trimmed.fastq.gz \
+-2 $INPUT_FOLDER/SRR4342129_2.paired.trimmed.fastq.gz $INPUT_FOLDER/SRR4342133_2.paired.trimmed.fastq.gz \
+-o $OUTPUT_FOLDER
