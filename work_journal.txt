@@ -2,18 +2,13 @@
 Work Journal: Genome Analysis project
 #####################################
 
-Working on right know: Step 1 (RNA trimming), step 2 (assembly)
-What's been done: RNA trimming is finished, started working on the megahit script
-Next step: Continue on the assembly, run FastQC on the trimmed RNA
+Working on right know: Step 2 (assembly)
+What's been done: RNA trimming is finished as well as the QC, submitted a first attempt at megahit assembly
+Next step: Continue on the assembly
 
 #####################################
 Questions:
-Trimmomatic
-- Which of the output files should be kept/used? (forward/reverse paired/unpaired)
-Megahit
-- Should all the samples be pooled before assembly? (organisms from both high- and low-oxygen environments)
-They do in the paper, but why?
-- The paper mentions two parameters for their assembly (-pre_correction and -seed_kmer 55) but I can't find the corresponding for Megahit. Will that be a problem?
+
 
 #####################################
 2024-03-28
@@ -30,3 +25,8 @@ Started working on the RNA trimming. Have a test script to try (but it doesn’t
 2024-04-09
 Ran the Trimmomatic analysis
 Started working on the megahit assembly
+
+2024-04-12
+For the Trimmomatic, I picked the paired output for further analysis
+I ran FastQC on these four runs and downloaded the HTML results
+For Megahit, I'll pool all samples and analyze them as one metagenome. Why? Because it gives one pool with more DNA --> more statistical information to get a good assembly
