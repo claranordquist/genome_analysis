@@ -48,4 +48,4 @@ module load bioinfo-tools megahit/1.2.9
 megahit -t 2 --k-min 65 --k-max 105 --k-step 10 --kmin-1pass \
   -1 $INPUT_FOLDER/SRR4342129_1.paired.trimmed.fastq.gz $INPUT_FOLDER/SRR4342133_1.paired.trimmed.fastq.gz \
   -2 $INPUT_FOLDER/SRR4342129_2.paired.trimmed.fastq.gz $INPUT_FOLDER/SRR4342133_2.paired.trimmed.fastq.gz \
-  -o $OUTPUT_FOLDER
+  -o $OUTPUT_FOLDER/
