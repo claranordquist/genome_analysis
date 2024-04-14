@@ -1,14 +1,14 @@
 #!/bin/bash -l
 
-#SBATCH -A uppmax2024-2-7
-#SBATCH -M snowy
-#SBATCH -p core
-#SBATCH -n 2
-#SBATCH -t 01:15:00
-#SBATCH -J metagenome_evaluation
-#SBATCH --mail-type=ALL
-#SBATCH --mail-user clara.nordquist.1217@student.uu.se
-#SBATCH --output=%x.%j.out
+# SBATCH -A uppmax2024-2-7
+# SBATCH -M snowy
+# SBATCH -p core
+# SBATCH -n 2
+# SBATCH -t 01:15:00
+# SBATCH -J metagenome_evaluation
+# SBATCH --mail-type=ALL
+# SBATCH --mail-user clara.nordquist.1217@student.uu.se
+# SBATCH --output=%x.%j.out
 
 ######################################
 
