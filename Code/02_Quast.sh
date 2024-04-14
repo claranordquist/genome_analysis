@@ -4,7 +4,7 @@
 #SBATCH -M snowy
 #SBATCH -p core
 #SBATCH -n 2
-#SBATCH -t 08:00:00
+#SBATCH -t 01:15:00
 #SBATCH -J metagenome_evaluation
 #SBATCH --mail-type=ALL
 #SBATCH --mail-user clara.nordquist.1217@student.uu.se
@@ -24,10 +24,10 @@
 ######################################
 
 # Defining the folders
-INPUT_FOLDER=
+INPUT_FOLDER=/home/claran/genome_analysis/Analyses/02_Assembly/021_Metagenome_assembly
 OUTPUT_FOLDER=/home/claran/genome_analysis/Analyses/02_Assembly/022_Assembly_evaluation
 
 # Module loading
 module load bioinfo-tools quast/5.0.2
 
-python metaquast.py $INPUT_FOLDER/*
+python metaquast.py -o $OUTPUT_FOLDER --threads 2 $INPUT_FOLDER/final.contigs.fa
