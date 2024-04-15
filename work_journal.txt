@@ -29,4 +29,11 @@ Started working on the megahit assembly
 2024-04-12
 For the Trimmomatic, I picked the paired output for further analysis
 I ran FastQC on these four runs and downloaded the HTML results
-For Megahit, I'll pool all samples and analyze them as one metagenome. Why? Because it gives one pool with more DNA --> more statistical information to get a good assembly
+For Megahit, I'll pool all samples and analyze them as one metagenome. Why? Because it gives one pool with more DNA --> more statistical information to get a good assembly.
+
+Ran the metagenome analysis with Megahit, and it worked (I think).
+
+2024-04-15
+Updated the Wiki with the results of step 1 (preprocessing).
+Tried to run the metagenome evaluation with MetaQuast.
+Started researching for the binning step. 
