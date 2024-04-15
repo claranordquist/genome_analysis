@@ -2,13 +2,15 @@
 Work Journal: Genome Analysis project
 #####################################
 
-Working on right know: Step 2 (assembly)
-What's been done: RNA trimming is finished as well as the QC, submitted a first attempt at megahit assembly
-Next step: Continue on the assembly
+Working on right know: Step 2.2 (assembly evaluation)
+What's been done: The metagenome has been assembled, and I've run one round of Metaquast to evaluate the assembly.
+Next step: Understand the evaluation and start binning.
 
 #####################################
-Questions:
-
+Questions
+For the assembly evaluation (metaquast output):
+- The paper got some other results from the assembly evaluation. Are my results reasonably similar, or have I done something wrong?
+- The evaluation list two reference organisms to which they've found a match. Neither of these come up in the paper?
 
 #####################################
 2024-03-28
