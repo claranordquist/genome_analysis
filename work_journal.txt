@@ -41,4 +41,7 @@ Started researching for the binning step.
 2024-04-16
 The assembly evaluation is ok: The numbers differ because we use a subset of the data. And it's not surprising to get hits on wrong organisms, because we expect quite "unknown" organisms to turn up. We're not interested in the references, mainly in the statistics. 
 
-Ran a first attempt at binning. Choose to not try and include the -a command (it needs an alignment file where the coverage of each contig is found, so that it can use that additional information for the binning)
+Ran a first attempt at binning. Choose to not try and include the -a command (it needs an alignment file where the coverage of each contig is found, so that it can use that additional information for the binning).
+The binning gave 26 bins.
+
+Ran a first attempt at CheckM binning evaluation.
