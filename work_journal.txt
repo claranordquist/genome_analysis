@@ -2,15 +2,13 @@
 Work Journal: Genome Analysis project
 #####################################
 
-Working on right know: Step 2.2 (assembly evaluation)
-What's been done: The metagenome has been assembled, and I've run one round of Metaquast to evaluate the assembly.
-Next step: Understand the evaluation and start binning.
+Working on right know: Step 3 (binning)
+What's been done: Started the binning
+Next step: See if the binning works, and then run CheckM to evaluate its performance
 
 #####################################
 Questions
-For the assembly evaluation (metaquast output):
-- The paper got some other results from the assembly evaluation. Are my results reasonably similar, or have I done something wrong?
-- The evaluation list two reference organisms to which they've found a match. Neither of these come up in the paper?
+
 
 #####################################
 2024-03-28
@@ -39,3 +37,8 @@ Ran the metagenome analysis with Megahit, and it worked (I think).
 Updated the Wiki with the results of step 1 (preprocessing).
 Tried to run the metagenome evaluation with MetaQuast.
 Started researching for the binning step. 
+
+2024-04-16
+The assembly evaluation is ok: The numbers differ because we use a subset of the data. And it's not surprising to get hits on wrong organisms, because we expect quite "unknown" organisms to turn up. We're not interested in the references, mainly in the statistics. 
+
+Ran a first attempt at binning. Choose to not try and include the -a command (it needs an alignment file where the coverage of each contig is found, so that it can use that additional information for the binning)
