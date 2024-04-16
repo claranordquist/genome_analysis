@@ -2,9 +2,9 @@
 Work Journal: Genome Analysis project
 #####################################
 
-Working on right know: Step 3 (binning)
-What's been done: Started the binning
-Next step: See if the binning works, and then run CheckM to evaluate its performance
+Working on right now: Step 3 (binning)
+What's been done: Binned and evaluated the binning.
+Next step: Decide on which bins to keep and continue analyzing.
 
 #####################################
 Questions
@@ -44,4 +44,4 @@ The assembly evaluation is ok: The numbers differ because we use a subset of the
 Ran a first attempt at binning. Choose to not try and include the -a command (it needs an alignment file where the coverage of each contig is found, so that it can use that additional information for the binning).
 The binning gave 26 bins.
 
-Ran a first attempt at CheckM binning evaluation.
+Ran a first attempt at CheckM binning evaluation, and got a result. 
