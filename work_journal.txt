@@ -45,3 +45,6 @@ Ran a first attempt at binning. Choose to not try and include the -a command (it
 The binning gave 26 bins.
 
 Ran a first attempt at CheckM binning evaluation, and got a result. 
+
+2024-04-17
+Updated the Wiki with results from the assembly and binning
