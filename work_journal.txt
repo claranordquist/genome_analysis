@@ -2,41 +2,24 @@
 Work Journal: Genome Analysis project
 #####################################
 
-Working on right now: Step 3 (binning)
-What's been done: Binned and evaluated the binning.
-Next step: Decide on which bins to keep and continue analyzing.
+Working on right now: Step 5 (RNA alignment)
+What's been done: Selected the bins to continue working on, ran the annotation
+Next step: Align the RNA
 
 #####################################
 Questions
 
 
 #####################################
-2024-03-28
-Finished the project plan
-Started the FastQC analysis
-Managed to run one sample
-Moved files back and forth
+2024-04-18
+I decided on keeping four bins from the assembly+binning based on completeness and contamination (15, 20, 4, 19)
+For those, I ran the Prokka annotation (which worked fine)
 
-2024-04-08
-Ran the FastQC for the trimmed DNA and untrimmed RNA
-Downloaded the HTML results to my computer
-Started working on the RNA trimming. Have a test script to try (but it doesn’t work). Gives an error stating that the ILLUMINACLIP command is not found (why??)
+Started on step 5, the RNA alignment to the bins
+Created a first draft of a script, researched bwa and samtools
 
-2024-04-09
-Ran the Trimmomatic analysis
-Started working on the megahit assembly
-
-2024-04-12
-For the Trimmomatic, I picked the paired output for further analysis
-I ran FastQC on these four runs and downloaded the HTML results
-For Megahit, I'll pool all samples and analyze them as one metagenome. Why? Because it gives one pool with more DNA --> more statistical information to get a good assembly.
-
-Ran the metagenome analysis with Megahit, and it worked (I think).
-
-2024-04-15
-Updated the Wiki with the results of step 1 (preprocessing).
-Tried to run the metagenome evaluation with MetaQuast.
-Started researching for the binning step. 
+2024-04-17
+Updated the Wiki with results from the assembly and binning
 
 2024-04-16
 The assembly evaluation is ok: The numbers differ because we use a subset of the data. And it's not surprising to get hits on wrong organisms, because we expect quite "unknown" organisms to turn up. We're not interested in the references, mainly in the statistics. 
@@ -46,5 +29,29 @@ The binning gave 26 bins.
 
 Ran a first attempt at CheckM binning evaluation, and got a result. 
 
-2024-04-17
-Updated the Wiki with results from the assembly and binning
+2024-04-15
+Updated the Wiki with the results of step 1 (preprocessing).
+Tried to run the metagenome evaluation with MetaQuast.
+Started researching for the binning step. 
+
+2024-04-12
+For the Trimmomatic, I picked the paired output for further analysis
+I ran FastQC on these four runs and downloaded the HTML results
+For Megahit, I'll pool all samples and analyze them as one metagenome. Why? Because it gives one pool with more DNA --> more statistical information to get a good assembly.
+
+Ran the metagenome analysis with Megahit, and it worked (I think).
+
+2024-04-09
+Ran the Trimmomatic analysis
+Started working on the megahit assembly
+
+2024-04-08
+Ran the FastQC for the trimmed DNA and untrimmed RNA
+Downloaded the HTML results to my computer
+Started working on the RNA trimming. Have a test script to try (but it doesn’t work). Gives an error stating that the ILLUMINACLIP command is not found (why??)
+
+2024-03-28
+Finished the project plan
+Started the FastQC analysis
+Managed to run one sample
+Moved files back and forth
