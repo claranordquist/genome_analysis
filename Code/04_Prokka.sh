@@ -28,12 +28,12 @@
 
 # Defining the folders
 INPUT_FOLDER=/home/claran/genome_analysis/Analyses/03_Binning/031_Metagenome_binning
-OUTPUT_FOLDER=/home/claran/genome_analysis/Analyses/04_Annotation/041_Annotation
+OUTPUT_FOLDER=/home/claran/genome_analysis/Analyses/04_Annotation
 
 # Module loading
 module load bioinfo-tools prokka
 
 for BIN in 15 20 4 19
 do
-  prokka --outdir $OUTPUT_FOLDER --prefix Bin_${BIN} $INPUT_FOLDER/031_Metagenome_binning_${BIN}.fa
+  prokka --outdir $OUTPUT_FOLDER/Bin_${BIN} --prefix Bin_${BIN} $INPUT_FOLDER/031_Metagenome_binning_${BIN}.fa
 done
