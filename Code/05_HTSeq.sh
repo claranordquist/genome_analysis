@@ -30,18 +30,17 @@ set -x
 # Defining the folders
 INPUT_ALIGNMENTS=
 INPUT_FEATURES=/home/claran/genome_analysis/Analyses/04_Annotation
-# /Bin_XX/Bin_XX_without_fa.gff
+# /Bin_15/Bin_15_without_fasta.gff
+# /Bin_20/Bin_20_without_fasta.gff
+# /Bin_4/Bin_4_without_fasta.gff
+# /Bin_19/Bin_19_without_fasta.gff
 OUTPUT_FOLDER=/home/claran/genome_analysis/Analyses/05_RNA_mapping/052_Read_counting
 
 # SRR4342137_forward_paired.fastq.gz, SRR4342137_reverse_paired.fastq.gz
 # SRR4342139_forward_paired.fastq.gz, SRR4342139_reverse_paired.fastq.gz
-# Need to take away the fasta stuff at the end of the gff files for each bin
+
 
 module load bioinfo-tools htseq/2.0.2
 
 htseq-count -f bam -r pos -t CDS -o <output_file> <alignment_files> <gff_file>
-
-
-
-
 
