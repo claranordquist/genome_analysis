@@ -10,9 +10,12 @@
 #SBATCH --mail-user clara.nordquist.1217@student.uu.se
 #SBATCH --output=%x.%j.out
 
+set -x
+
 ######################################
 
 # https://www.youtube.com/watch?v=1wcFavYt6uU
+# https://figshare.com/articles/dataset/Supplemental_files_and_figures_for_Thrash_et_al_2017/12055989?file=22154721
 
 # BWA (https://bio-bwa.sourceforge.net/bwa.shtml)
 # To align the RNA reads to the bin genomes
@@ -26,15 +29,19 @@
 # Thereafter, we will convert the file format from sam to bam (Samtools)
 # Lastly, we will sort the bam files (Samtools) so that they are ready to go into the next analysis software (HTSeq)
 # We'll use the default sorting, which is by coordinates
-
-# Do we need to index the bam files as well?
-
 # The two software will be used in a pipeline to avoid intermediate files 
 
 # Syntax
-# Indexing: bwa index reference.fa
-# Aligning: bwa mem reference.fa read1.fq read2.fq > aligned.sam 
-# SAM --> Sorted BAM: samtools sort -o aligned_sorted.bam
+# Indexing
+# bwa index reference.fa
+
+# Aligning
+# bwa mem [options] reference.fa read1.fq read2.fq
+# -t 2 Use 2 threads (because we've asked for two cores)
+
+# Sorting and converting to BAM
+# SAM --> Sorted BAM: samtools sort [options] input.sam
+# -o <output.bam> Where to output the results
 
 ######################################
 
@@ -54,7 +61,7 @@ OUTPUT_FOLDER=/home/claran/genome_analysis/Analyses/05_RNA_mapping/051_RNA_mappi
 module load bioinfo-tools bwa samtools
 
 # Indexing the references (bins)
-for BIN in $INDEXED_BINS/*
+for BIN in $INDEXED_BINS/*.fa
 do
   bwa index $BIN 
 done
@@ -62,8 +69,9 @@ done
 # Aligning each bin with the two different RNA reads
 for BIN in 15 20 4 19
 do
-  bwa mem $INDEXED_BINS/Bin_{$BIN}.fa $INPUT_RNA/SRR4342137_forward_paired.fastq.gz $INPUT_RNA/SRR4342137_reverse_paired.fastq.gz \
-    > $OUTPUT_FOLDER/Bin_{$BIN}_SRR4342137.sam | samtools sort -o Bin_{$BIN}_SRR4342137_sorted.bam
-  bwa mem $INDEXED_BINS/Bin_{$BIN}.fa $INPUT_RNA/SRR4342139_forward_paired.fastq.gz $INPUT_RNA/SRR4342139_reverse_paired.fastq.gz \
-    > $OUTPUT_FOLDER/Bin_{$BIN}_SRR4342137.sam | samtools sort -o Bin_{$BIN}_SRR4342139_sorted.bam
+  bwa mem -t 2 $INDEXED_BINS/Bin_{$BIN}.fa $INPUT_RNA/SRR4342137_forward_paired.fastq.gz $INPUT_RNA/SRR4342137_reverse_paired.fastq.gz | \
+  samtools sort -o Bin_{$BIN}_SRR4342137_sorted.bam -
+    
+  bwa mem -t 2 $INDEXED_BINS/Bin_{$BIN}.fa $INPUT_RNA/SRR4342139_forward_paired.fastq.gz $INPUT_RNA/SRR4342139_reverse_paired.fastq.gz | \
+  samtools sort -o Bin_{$BIN}_SRR4342139_sorted.bam -
 done
