@@ -24,7 +24,11 @@
 # First, we need to index the reference files (= the bins) (BWA)
 # Next, we will align each RNA sample (paired-end reads) to each bin (BWA)
 # Thereafter, we will convert the file format from sam to bam (Samtools)
-# Lastly, we will sort the bam files (Samtools)
+# Lastly, we will sort the bam files (Samtools) so that they are ready to go into the next analysis software (HTSeq)
+# We'll use the default sorting, which is by coordinates
+
+# Do we need to index the bam files as well?
+
 # The two software will be used in a pipeline to avoid intermediate files 
 
 # Syntax
