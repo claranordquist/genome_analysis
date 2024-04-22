@@ -8,9 +8,22 @@ Next step: Align the RNA
 
 #####################################
 Questions
+I want to double-check my workflow before continuing
+What I’ve done:
+- I did the binning, and after evaluating the results I chose 4 bins that corresponded somewhat to the standard proposed by that paper on Slack
+- Thereafter, I annotated those 4 bins (separately)
 
+Now:
+- I’m about to do the RNA mapping (that is: aligning the RNA reads to the bins)
+- My idea is to do this separately for each bin: index the bins, align both RNA reads to each one (high vs low oxygen)
+- That’ll give me 8 output alignments: One from a high-oxygen and one from a low-oxygen environment for each bin
+- By then using a feature count, I get information on what feature seen for each bin (from the annotation) is present in which environment (low/high oxygen). That way I can figure out if the organism is present in just one environment or both, and if its gene expression is different
 
 #####################################
+2024-04-22
+Updated the wiki, continued working on the RNA alignment script
+Researched a bit about the feature count software HTSeq to know what is needed from the output files of the alignment
+
 2024-04-18
 I decided on keeping four bins from the assembly+binning based on completeness and contamination (15, 20, 4, 19)
 For those, I ran the Prokka annotation (which worked fine)
