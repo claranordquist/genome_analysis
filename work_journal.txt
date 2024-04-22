@@ -33,6 +33,7 @@ For the HTSeq read count
 2024-04-22
 Updated the wiki, continued working on the RNA alignment script
 Researched a bit about the feature count software HTSeq to know what is needed from the output files of the alignment
+Took away the fasta file endings on the gff files so that they are compatible with HTSeq
 
 2024-04-18
 I decided on keeping four bins from the assembly+binning based on completeness and contamination (15, 20, 4, 19)
