@@ -19,6 +19,16 @@ Now:
 - That’ll give me 8 output alignments: One from a high-oxygen and one from a low-oxygen environment for each bin
 - By then using a feature count, I get information on what feature seen for each bin (from the annotation) is present in which environment (low/high oxygen). That way I can figure out if the organism is present in just one environment or both, and if its gene expression is different
 
+
+For the alignment
+There are a lot of different options
+- In the paper they use bwa aln in combination with bwa same, but when I google the bwa mem seems to be recommended. What's the difference between the two?
+- Can I convert directly from sam to sorted bam (in a pipeline)? It says that might take a long time, but what's the difference to going via samtools view (that is, go from sam --> sorted bam vs sam --> bam --> sorted bam)
+
+
+For the HTSeq read count
+- The output is in sam format, should I compress it to bam?
+
 #####################################
 2024-04-22
 Updated the wiki, continued working on the RNA alignment script
