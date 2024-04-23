@@ -2,34 +2,21 @@
 Work Journal: Genome Analysis project
 #####################################
 
-Working on right now: Step 5 (RNA alignment)
-What's been done: Selected the bins to continue working on, ran the annotation
-Next step: Align the RNA
+Working on right now: Step 5, step 6
+What's been done: RNA alignment and feature count
+Next step: Phylogeny, start to analyze the results
 
 #####################################
 Questions
-I want to double-check my workflow before continuing
-What I’ve done:
-- I did the binning, and after evaluating the results I chose 4 bins that corresponded somewhat to the standard proposed by that paper on Slack
-- Thereafter, I annotated those 4 bins (separately)
 
-Now:
-- I’m about to do the RNA mapping (that is: aligning the RNA reads to the bins)
-- My idea is to do this separately for each bin: index the bins, align both RNA reads to each one (high vs low oxygen)
-- That’ll give me 8 output alignments: One from a high-oxygen and one from a low-oxygen environment for each bin
-- By then using a feature count, I get information on what feature seen for each bin (from the annotation) is present in which environment (low/high oxygen). That way I can figure out if the organism is present in just one environment or both, and if its gene expression is different
-
-
-For the alignment
-There are a lot of different options
-- In the paper they use bwa aln in combination with bwa same, but when I google the bwa mem seems to be recommended. What's the difference between the two?
-- Can I convert directly from sam to sorted bam (in a pipeline)? It says that might take a long time, but what's the difference to going via samtools view (that is, go from sam --> sorted bam vs sam --> bam --> sorted bam)
-
-
-For the HTSeq read count
-- The output is in sam format, should I compress it to bam?
 
 #####################################
+2024-04-23
+Ran the RNA alignment, 5.1 (BWA and samtools)
+Ran the feature count, 5.2 (HTSeq)
+
+Idea for one extra analysis: For the abundance, map the DNA reads to the bins and use samtools stats to see the abundance
+
 2024-04-22
 Updated the wiki, continued working on the RNA alignment script
 Researched a bit about the feature count software HTSeq to know what is needed from the output files of the alignment
