@@ -24,7 +24,7 @@ set -x
 # Samtools (https://github.com/samtools/samtools)
 # To convert the alignment files (sam) to less memory-intensive bam files
 
-# First, we need to index the reference files (= the bins) (BWA)
+# [First, we need to index the reference files (= the bins) (BWA)]
 # Next, we will align each RNA sample (paired-end reads) to each bin (BWA)
 # Thereafter, we will convert the file format from sam to bam (Samtools)
 # Lastly, we will sort the bam files (Samtools) so that they are ready to go into the next analysis software (HTSeq)
@@ -32,9 +32,6 @@ set -x
 # The two software will be used in a pipeline to avoid intermediate files 
 
 # Syntax
-# Indexing
-# bwa index reference.fa
-
 # Aligning
 # bwa mem [options] reference.fa read1.fq read2.fq
 # -t 2 Use 2 threads (because we've asked for two cores)
@@ -60,18 +57,14 @@ OUTPUT_FOLDER=/home/claran/genome_analysis/Analyses/05_RNA_mapping/051_RNA_mappi
 # Module loading
 module load bioinfo-tools bwa samtools
 
-# Indexing the references (bins)
-for BIN in $INDEXED_BINS/*.fa
-do
-  bwa index $BIN 
-done
-
 # Aligning each bin with the two different RNA reads
 for BIN in 15 20 4 19
 do
   bwa mem -t 2 $INDEXED_BINS/Bin_{$BIN}.fa $INPUT_RNA/SRR4342137_forward_paired.fastq.gz $INPUT_RNA/SRR4342137_reverse_paired.fastq.gz | \
+  samtools view - | \
   samtools sort -o Bin_{$BIN}_SRR4342137_sorted.bam -
     
   bwa mem -t 2 $INDEXED_BINS/Bin_{$BIN}.fa $INPUT_RNA/SRR4342139_forward_paired.fastq.gz $INPUT_RNA/SRR4342139_reverse_paired.fastq.gz | \
+  samtools view - | \
   samtools sort -o Bin_{$BIN}_SRR4342139_sorted.bam -
 done
