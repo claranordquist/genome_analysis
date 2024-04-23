@@ -47,7 +47,7 @@ samtools index -o /home/claran/genome_analysis/Analyses/05_RNA_mapping/051_RNA_m
 
 htseq-count -f bam -r pos -t CDS -o test.sam \
 $INPUT_ALIGNMENTS/Bin_15_SRR4342137_sorted.bam \
-$INPUT_ALIGNMENTS/Bin_15/Bin_15_without_fasta.gff
+$INPUT_FEATURES/Bin_15/Bin_15_without_fasta.gff
 
 # Iterating over the bins, for each of the two environments
 # for BIN in 15 20 4 19
