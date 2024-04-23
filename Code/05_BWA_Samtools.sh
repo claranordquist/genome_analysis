@@ -4,7 +4,7 @@
 #SBATCH -M snowy
 #SBATCH -p core
 #SBATCH -n 2
-#SBATCH -t 08:00:00
+#SBATCH -t 04:00:00
 #SBATCH -J RNA_alignment
 #SBATCH --mail-type=ALL
 #SBATCH --mail-user clara.nordquist.1217@student.uu.se
@@ -35,7 +35,9 @@
 # -t 2 Use 2 threads (because we've asked for two cores)
 
 # Sorting and converting to BAM
-# SAM --> Sorted BAM: samtools sort [options] input.sam
+# SAM --> BAM: samtools view [options]
+# -b To output a bam file
+# Unsorted BAM --> Sorted BAM: samtools sort [options] input.sam
 # -o <output.bam> Where to output the results
 
 ######################################
@@ -50,18 +52,14 @@ OUTPUT_FOLDER=/home/claran/genome_analysis/Analyses/05_RNA_mapping/051_RNA_mappi
 # Module loading
 module load bioinfo-tools bwa samtools
 
-bwa mem -t 2 $INDEXED_BINS/Bin_15.fa $INPUT_RNA/SRR4342137_forward_paired.fastq.gz $INPUT_RNA/SRR4342137_reverse_paired.fastq.gz | \
-samtools view -b | \
-samtools sort -o test.bam
-
 # Aligning each bin with the two different RNA reads
-# for BIN in 15 20 4 19
-# do
-#  bwa mem -t 2 $INDEXED_BINS/Bin_${BIN}.fa $INPUT_RNA/SRR4342137_forward_paired.fastq.gz $INPUT_RNA/SRR4342137_reverse_paired.fastq.gz | \
-#  samtools view | \
-#  samtools sort -o Bin_${BIN}_SRR4342137_sorted.bam
+for BIN in 15 20 4 19
+do
+    bwa mem -t 2 $INDEXED_BINS/Bin_${BIN}.fa $INPUT_RNA/SRR4342137_forward_paired.fastq.gz $INPUT_RNA/SRR4342137_reverse_paired.fastq.gz | \
+    samtools view -b | \
+    samtools sort -o $OUTPUT_FOLDER/Bin_${BIN}_SRR4342137_sorted.bam
     
-#  bwa mem -t 2 $INDEXED_BINS/Bin_${BIN}.fa $INPUT_RNA/SRR4342139_forward_paired.fastq.gz $INPUT_RNA/SRR4342139_reverse_paired.fastq.gz | \
-#  samtools view | \
-#  samtools sort -o Bin_${BIN}_SRR4342139_sorted.bam
-# done
+    bwa mem -t 2 $INDEXED_BINS/Bin_${BIN}.fa $INPUT_RNA/SRR4342139_forward_paired.fastq.gz $INPUT_RNA/SRR4342139_reverse_paired.fastq.gz | \
+    samtools view -b | \
+    samtools sort -o $OUTPUT_FOLDER/Bin_${BIN}_SRR4342139_sorted.bam
+done
