@@ -50,7 +50,7 @@ OUTPUT_FOLDER=/home/claran/genome_analysis/Analyses/05_RNA_mapping/051_RNA_mappi
 # Module loading
 module load bioinfo-tools bwa samtools
 
-bwa mem -t 2 $INDEXED_BINS/Bin_15.fa $INPUT_RNA/SRR4342137_forward_paired.fastq.gz $INPUT_RNA/SRR4342137_reverse_paired.fastq.gz | samtools view -o test.bam
+bwa mem -t 2 $INDEXED_BINS/Bin_15.fa $INPUT_RNA/SRR4342137_forward_paired.fastq.gz $INPUT_RNA/SRR4342137_reverse_paired.fastq.gz | samtools view | samtools sort -o test.bam
 
 # Aligning each bin with the two different RNA reads
 # for BIN in 15 20 4 19
