@@ -46,11 +46,6 @@ set -x
 INPUT_RNA=/home/claran/genome_analysis/Data/Trimmed_RNA
 # SRR4342137_forward_paired.fastq.gz, SRR4342137_reverse_paired.fastq.gz
 # SRR4342139_forward_paired.fastq.gz, SRR4342139_reverse_paired.fastq.gz
-INPUT_BINS=/home/claran/genome_analysis/Analyses/03_Binning/031_Metagenome_binning
-# 031_Metagenome_binning_15.fa
-# 031_Metagenome_binning_20.fa
-# 031_Metagenome_binning_4.fa
-# 031_Metagenome_binning_19.fa
 INDEXED_BINS=/home/claran/genome_analysis/Analyses/05_RNA_mapping/051_Indexed_bins
 OUTPUT_FOLDER=/home/claran/genome_analysis/Analyses/05_RNA_mapping/051_RNA_mapping
 
