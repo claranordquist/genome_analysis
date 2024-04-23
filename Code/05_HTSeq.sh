@@ -23,6 +23,7 @@
 # -f bam That the input files are in bam format, default is sam
 # -r pos That the bam files are sorted according to coordinates (from samtools sort), default is by name
 # -t CDS That the feature type (3rd column in the gff file) is CDS, default is exon
+# -i ID Tell the program that the gene names are identified by ID instead of gene_id
 # -o <output file> The name of the (sam-) file to which the program will write the output
 
 ######################################
@@ -43,9 +44,9 @@ OUTPUT_FOLDER=/home/claran/genome_analysis/Analyses/05_RNA_mapping/052_Read_coun
 # Module loading
 module load bioinfo-tools htseq/2.0.2 samtools
 
-samtools index -o /home/claran/genome_analysis/Analyses/05_RNA_mapping/051_RNA_mapping/Bin_15_SRR4342137_sorted.bai $INPUT_ALIGNMENTS/Bin_15_SRR4342137_sorted.bam
+# samtools index -o /home/claran/genome_analysis/Analyses/05_RNA_mapping/051_RNA_mapping/Bin_15_SRR4342137_sorted.bai $INPUT_ALIGNMENTS/Bin_15_SRR4342137_sorted.bam
 
-htseq-count -f bam -r pos -t CDS -o test.sam \
+htseq-count -f bam -r pos -t CDS -i ID -o test.sam \
 $INPUT_ALIGNMENTS/Bin_15_SRR4342137_sorted.bam \
 $INPUT_FEATURES/Bin_15/Bin_15_without_fasta.gff
 
