@@ -4,7 +4,7 @@
 #SBATCH -M snowy
 #SBATCH -p core
 #SBATCH -n 2
-#SBATCH -t 02:00:00
+#SBATCH -t 01:00:00
 #SBATCH -J feature_counting
 #SBATCH --mail-type=ALL
 #SBATCH --mail-user clara.nordquist.1217@student.uu.se
@@ -17,6 +17,11 @@
 
 # The gff files from Prokka must be edited to remove the fasta sequences at the end of the file for it to work with HTSeq
 # I did this with the script remove_fasta.sh found in /home/claran/genome_analysis/Analyses/04_Annotation
+
+# I also need to create index files for the sorted BAMs (because I forget that in the previous step oops)
+# That's done with samtools
+# Syntax: samtools index [options] <sorted bam>
+# -o The output file, in .bai format
 
 # Syntax: htseq-count [options] <alignment_files> <gff_file>
 # Options that need to be specified are:
@@ -44,20 +49,25 @@ OUTPUT_FOLDER=/home/claran/genome_analysis/Analyses/05_RNA_mapping/052_Read_coun
 # Module loading
 module load bioinfo-tools htseq/2.0.2 samtools
 
-# samtools index -o /home/claran/genome_analysis/Analyses/05_RNA_mapping/051_RNA_mapping/Bin_15_SRR4342137_sorted.bai $INPUT_ALIGNMENTS/Bin_15_SRR4342137_sorted.bam
+# Index the bam files
+for BIN in 15 20 4 19
+do
+  samtools index -o /home/claran/genome_analysis/Analyses/05_RNA_mapping/051_RNA_mapping/Bin_${BIN}_SRR4342137_sorted.bai $INPUT_ALIGNMENTS/Bin_${BIN}_SRR4342137_sorted.bam
+  samtools index -o /home/claran/genome_analysis/Analyses/05_RNA_mapping/051_RNA_mapping/Bin_${BIN}_SRR4342139_sorted.bai $INPUT_ALIGNMENTS/Bin_${BIN}_SRR4342139_sorted.bam
+done
 
-htseq-count -f bam -r pos -t CDS -i ID -o test.sam \
-$INPUT_ALIGNMENTS/Bin_15_SRR4342137_sorted.bam \
-$INPUT_FEATURES/Bin_15/Bin_15_without_fasta.gff
+# Iterate over all bins
+for BIN in 15 20 4 19
+do
+  # One count for each environment
+  htseq-count -f bam -r pos -t CDS -i ID \
+  -o $OUTPUT_FOLDER/Bin_${BIN}_SRR4342137 \
+  $INPUT_ALIGNMENTS/Bin_${BIN}_SRR4342137_sorted.bam \
+  $INPUT_FEATURES/Bin_${BIN}/Bin_${BIN}_without_fasta.gff
 
-# Iterating over the bins, for each of the two environments
-# for BIN in 15 20 4 19
-# do
-#    htseq-count -f bam -r pos -t CDS -o $OUTPUT_FOLDER/Bin_${BIN}_SRR4342137.sam \
-#    $INPUT_ALIGNMENTS/Bin_${BIN}_SRR4342137_sorted.bam \
-#    $INPUT_ALIGNMENTS/Bin_${BIN}/Bin_${BIN}_without_fasta.gff
-
-#    htseq-count -f bam -r pos -t CDS -o $OUTPUT_FOLDER/Bin_${BIN}_SRR4342139.sam \
-#    $INPUT_ALIGNMENTS/Bin_${BIN}_SRR4342139_sorted.bam \
-#    $INPUT_ALIGNMENTS/Bin_${BIN}/Bin_${BIN}_without_fasta.gff
-# done
+  # One run for each environment
+  htseq-count -f bam -r pos -t CDS -i ID \
+  -o $OUTPUT_FOLDER/Bin_${BIN}_SRR4342139 \
+  $INPUT_ALIGNMENTS/Bin_${BIN}_SRR4342139_sorted.bam \
+  $INPUT_FEATURES/Bin_${BIN}/Bin_${BIN}_without_fasta.gff
+done
