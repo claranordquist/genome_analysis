@@ -10,8 +10,6 @@
 #SBATCH --mail-user clara.nordquist.1217@student.uu.se
 #SBATCH --output=%x.%j.out
 
-set -x
-
 ######################################
 
 # https://www.youtube.com/watch?v=1wcFavYt6uU
