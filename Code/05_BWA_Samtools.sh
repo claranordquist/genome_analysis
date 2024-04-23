@@ -60,11 +60,11 @@ module load bioinfo-tools bwa samtools
 # Aligning each bin with the two different RNA reads
 for BIN in 15 20 4 19
 do
-  bwa mem -t 2 $INDEXED_BINS/Bin_{$BIN}.fa $INPUT_RNA/SRR4342137_forward_paired.fastq.gz $INPUT_RNA/SRR4342137_reverse_paired.fastq.gz | \
-  samtools view - | \
-  samtools sort -o Bin_{$BIN}_SRR4342137_sorted.bam -
+  bwa mem -t 2 $INDEXED_BINS/Bin_${BIN}.fa $INPUT_RNA/SRR4342137_forward_paired.fastq.gz $INPUT_RNA/SRR4342137_reverse_paired.fastq.gz | \
+  samtools view | \
+  samtools sort -o Bin_${BIN}_SRR4342137_sorted.bam
     
-  bwa mem -t 2 $INDEXED_BINS/Bin_{$BIN}.fa $INPUT_RNA/SRR4342139_forward_paired.fastq.gz $INPUT_RNA/SRR4342139_reverse_paired.fastq.gz | \
-  samtools view - | \
-  samtools sort -o Bin_{$BIN}_SRR4342139_sorted.bam -
+  bwa mem -t 2 $INDEXED_BINS/Bin_${BIN}.fa $INPUT_RNA/SRR4342139_forward_paired.fastq.gz $INPUT_RNA/SRR4342139_reverse_paired.fastq.gz | \
+  samtools view | \
+  samtools sort -o Bin_${BIN}_SRR4342139_sorted.bam
 done
