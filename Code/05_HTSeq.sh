@@ -43,7 +43,7 @@ OUTPUT_FOLDER=/home/claran/genome_analysis/Analyses/05_RNA_mapping/052_Read_coun
 # Module loading
 module load bioinfo-tools htseq/2.0.2 samtools
 
-# samtools index -o /home/claran/genome_analysis/Analyses/05_RNA_mapping/051_RNA_mapping/Bin_15_SRR4342137_index.bam $INPUT_ALIGNMENTS/Bin_15_SRR4342137_sorted.bam
+# samtools index -o /home/claran/genome_analysis/Analyses/05_RNA_mapping/051_RNA_mapping/Bin_15_SRR4342137_sorted.bai $INPUT_ALIGNMENTS/Bin_15_SRR4342137_sorted.bam
 
 htseq-count -f bam -r pos -t CDS -o test.sam \
 $INPUT_ALIGNMENTS/Bin_15_SRR4342137_index.bam \
