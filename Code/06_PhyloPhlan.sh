@@ -50,4 +50,4 @@ conda activate phylophlan
 
 # PhyloPhlan: Create a phylogenetic tree
 phylophlan -i $INPUT_BINS --output_folder $OUTPUT_FOLDER -d SGB.Jan21 --database_folder $DATABASES \
-# --configs_folder $CONFIG_FOLDER --diversity low
+--configs_folder $CONFIG_FOLDER --diversity low
