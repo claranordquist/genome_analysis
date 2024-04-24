@@ -8,9 +8,14 @@ Next step: Phylogeny, start to analyze the results
 
 #####################################
 Questions
-
+For PhyloPhlan:
+- There are two different pipelines, supermatrix and supertree: What's the difference and which should be used?
 
 #####################################
+2024-04-24
+Worked on the PhyloPhlan script
+The assignment to species seems to work, for the tree I need to specify the config file (supermatrix vs supertree)
+
 2024-04-23
 Ran the RNA alignment, 5.1 (BWA and samtools)
 Ran the feature count, 5.2 (HTSeq)
