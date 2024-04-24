@@ -39,7 +39,7 @@
 # Defining the folders
 INPUT_BINS=/home/claran/genome_analysis/Analyses/03_Binning/Selected_bins
 OUTPUT_FOLDER=/home/claran/genome_analysis/Analyses/06_Phylogeny
-CONFIG_FOLDER=/proj/uppmax2024-2-7/Genome_Analysis/conda_envs/configseither
+CONFIG_FOLDER=/proj/uppmax2024-2-7/Genome_Analysis/conda_envs/configs
 DATABASES=/proj/uppmax2024-2-7/Genome_Analysis/conda_envs/SGB/phylophlan_databases
 
 # Module loading
