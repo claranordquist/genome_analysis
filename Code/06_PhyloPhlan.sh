@@ -30,6 +30,7 @@
 
 # ASSIGN SGBS: To assign closest species to each bin
 # Syntax: phylophlan_assign_sgbs.py -i <input_folder> -o <output_prefix> -d <database> --database_folder <database_folder> -n <how many hits>
+# -n Default is 10
 
 # DRAW METAGENOMICS: To create heatmaps for the assigned SGBS
 # Syntax: phylophlan_draw_metagenomic.py -i <sgbs input> -o <output_name>
@@ -49,5 +50,8 @@ source conda_init.sh
 conda activate phylophlan
 
 # PhyloPhlan: Create a phylogenetic tree
-phylophlan -i $INPUT_BINS --output_folder $OUTPUT_FOLDER -d SGB.Jan21 --databases_folder $DATABASES \
---configs_folder $CONFIG_FOLDER --diversity low
+# phylophlan -i $INPUT_BINS --output_folder $OUTPUT_FOLDER -d SGB.Jan21 --databases_folder $DATABASES \
+# -f CONFIG FILE !!! --configs_folder $CONFIG_FOLDER --diversity low
+
+# Assign SGBS: Find most probable species for each bin
+phylophlan_assign_sgbs -i $INPUT_BINS --output_folder $OUTPUT_FOLDER -d SGB.Jan21 --databases_folder $DATABASES
