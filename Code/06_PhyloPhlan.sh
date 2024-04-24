@@ -54,4 +54,4 @@ conda activate phylophlan
 # -f CONFIG FILE !!! --configs_folder $CONFIG_FOLDER --diversity low
 
 # Assign SGBS: Find most probable species for each bin
-phylophlan_assign_sgbs -i $INPUT_BINS --output_folder $OUTPUT_FOLDER -d SGB.Jan21 --databases_folder $DATABASES
+phylophlan_assign_sgbs -i $INPUT_BINS -o $OUTPUT_FOLDER -d SGB.Jan21 --database_folder $DATABASES
