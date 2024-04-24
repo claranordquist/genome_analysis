@@ -49,9 +49,11 @@ export CONDA_ENVS_PATH=/proj/uppmax2024-2-7/Genome_Analysis/conda_envs
 source conda_init.sh
 conda activate phylophlan
 
+# Doesn't work: Must specify the config file
 # PhyloPhlan: Create a phylogenetic tree
 # phylophlan -i $INPUT_BINS --output_folder $OUTPUT_FOLDER -d SGB.Jan21 --databases_folder $DATABASES \
 # -f CONFIG FILE !!! --configs_folder $CONFIG_FOLDER --diversity low
 
-# Assign SGBS: Find most probable species for each bin
+# Works
+# Assign SGBS: Find the most probable species for each bin
 phylophlan_assign_sgbs -i $INPUT_BINS -o $OUTPUT_FOLDER -d SGB.Jan21 --database_folder $DATABASES
