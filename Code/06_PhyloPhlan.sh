@@ -1,21 +1,3 @@
-# For PhyloPhlan, run it using Conda. 
-# I setup a conda environment in the genome analysis folder for you guys to use so you don't need to repeat the installation.
-# The way you use it is by running:
-module load conda
-export CONDA_ENVS_PATH=/proj/uppmax2024-2-7/Genome_Analysis/conda_envs
-source conda_init.sh
-conda activate phylophlan
-
-# NOTE: config files you need to run phylophlan are in the folder /proj/uppmax2024-2-7/Genome_Analysis/conda_envs/configseither 
-# In a script or in interactive mode this works, and you should be able to use the PhyloPhlan commands as per the manual
-# Also, to identify the SGB in your bins you'll need to point to a database, please use -d SGB.Jan21
-# This database has already been downloaded in the Genome Analysis folder, under 
-# /proj/uppmax2024-2-7/Genome_Analysis/conda_envs/SGB/phylophlan_databases
-# You can point to this directory when running the command phylophlan_assign_sgbs
-# Check the manual and available options for the command with phylophlan_assign_sgbs -h
-# Also, when running PhyloPhlan note that the latest version changed the name of the function phylophlan_metagenomic to phylophlan_assign_sgbs
-
-
 #!/bin/bash -l
 
 #SBATCH -A uppmax2024-2-7
@@ -33,12 +15,39 @@ conda activate phylophlan
 # PhyloPhlan (https://github.com/biobakery/phylophlan/wiki)
 # We want to phylogenetically place the four organisms in our bins
 
-# Syntax: 
+# We will use three commands: phylophlan, phylophlan_assign_sgbs, and phylophlan_draw_metagenomic
+
+# PHYLOPHLAN: To create a phylogenetic tree of the four bins
+# Syntax: phylophlan.py -i <input_folder> --output_folder <output_folder> -d <database> --database_folder <database_folder> \
+# -f <config file> --configs_folder <config folder> --diversity <low/medium/high>
+# -i The input folder for the bins
+# --output_folder Path to the output folder where to save the results
+# -d The name of the database of markers to use
+# --database_folder Path to the folder containing the database files
+# -f The configuration file to load
+# --configs_folder Path to the folder containing the configuration files
+# --diversity The expected diversity of the phylogeny
+
+# ASSIGN SGBS: To assign closest species to each bin
+# Syntax: phylophlan_assign_sgbs.py -i <input_folder> -o <output_prefix> -d <database> --database_folder <database_folder> -n <how many hits>
+
+# DRAW METAGENOMICS: To create heatmaps for the assigned SGBS
+# Syntax: phylophlan_draw_metagenomic.py -i <sgbs input> -o <output_name>
 
 ######################################
 
 # Defining the folders
-INPUT_BINS=
-OUTPUT_FOLDER=
+INPUT_BINS=/home/claran/genome_analysis/Analyses/03_Binning/Selected_bins
+OUTPUT_FOLDER=/home/claran/genome_analysis/Analyses/06_Phylogeny
+CONFIG_FOLDER=/proj/uppmax2024-2-7/Genome_Analysis/conda_envs/configseither
+DATABASES=/proj/uppmax2024-2-7/Genome_Analysis/conda_envs/SGB/phylophlan_databases
 
 # Module loading
+module load conda
+export CONDA_ENVS_PATH=/proj/uppmax2024-2-7/Genome_Analysis/conda_envs
+source conda_init.sh
+conda activate phylophlan
+
+# PhyloPhlan: Create a phylogenetic tree
+phylophlan.py -i $INPUT_BINS --output_folder $OUTPUT_FOLDER -d SGB.Jan21 --database_folder $DATABASES \
+# --configs_folder $CONFIG_FOLDER --diversity low
