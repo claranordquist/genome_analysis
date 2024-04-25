@@ -4,7 +4,7 @@
 #SBATCH -M snowy
 #SBATCH -p core
 #SBATCH -n 2
-#SBATCH -t 01:00:00
+#SBATCH -t 06:00:00
 #SBATCH -J phylogeny
 #SBATCH --mail-type=ALL
 #SBATCH --mail-user clara.nordquist.1217@student.uu.se
@@ -17,7 +17,7 @@
 
 # We will use three commands: phylophlan, phylophlan_assign_sgbs, and phylophlan_draw_metagenomic
 
-# PHYLOPHLAN: To create a phylogenetic tree of the four bins
+# PHYLOPHLAN: To create a phylogenetic tree of the four bins. We'll go with the supermatrix approach (default)
 # Syntax: phylophlan.py -i <input_folder> --output_folder <output_folder> -d <database> --database_folder <database_folder> \
 # -f <config file> --configs_folder <config folder> --diversity <low/medium/high>
 # -i The input folder for the bins
@@ -49,11 +49,9 @@ export CONDA_ENVS_PATH=/proj/uppmax2024-2-7/Genome_Analysis/conda_envs
 source conda_init.sh
 conda activate phylophlan
 
-# Doesn't work: Must specify the config file
 # PhyloPhlan: Create a phylogenetic tree
-# phylophlan -i $INPUT_BINS --output_folder $OUTPUT_FOLDER -d SGB.Jan21 --databases_folder $DATABASES \
-# -f CONFIG FILE !!! --configs_folder $CONFIG_FOLDER --diversity low
+phylophlan -i $INPUT_BINS --output_folder $OUTPUT_FOLDER -d SGB.Jan21 --databases_folder $DATABASES \
+-f supermatrix_nt.cfg --configs_folder $CONFIG_FOLDER --diversity low
 
-# Works
 # Assign SGBS: Find the most probable species for each bin
 phylophlan_assign_sgbs -i $INPUT_BINS -o $OUTPUT_FOLDER -d SGB.Jan21 --database_folder $DATABASES
