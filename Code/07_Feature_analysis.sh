@@ -33,5 +33,5 @@ OUTPUT_FOLDER=/home/claran/genome_analysis/Analyses/07_Feature_analysis
 
 for SAMPLE in $INPUT_HTSEQ/*
 do
-  grep -v "__" $SAMPLE | grep "XF" | awk '{print $NF}' | uniq -c > $(basename -s .txt $SAMPLE)_stats.txt
+  grep -v "__" $SAMPLE | grep "XF" | awk '{print $NF}' | uniq -c > $OUTPUT_FOLDER/$(basename -s .txt $SAMPLE)_stats.txt
 done
