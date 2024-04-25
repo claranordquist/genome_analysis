@@ -13,6 +13,8 @@ Questions
 #####################################
 2024-04-25
 Ran the PhyloPhlan. Didn't do the tree, and the species assignment didn't give much.
+Why? Because the database it used is mainly based on human samples, so it's not very surprising that our organisms couldn't be found.
+In the paper, they used a different approach where they extracted the 16S gene. For that, there are more databases with taxonomy, and that's why they could get a better species identification.
 Should I run the heatmap?
 
 Started analyzing the data from the read counting, trying to connect the stats with the Prokka information.
