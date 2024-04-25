@@ -11,6 +11,9 @@ Questions
 For PhyloPhlan:
 - There are two different pipelines, supermatrix and supertree: What's the difference and which should be used?
 
+For the result of the HTSeq:
+- I need to filter the result SAM files, because I'm only interested in the RNA mappings to a feature (to be able to count and analyze). Any tips on how to proceed on that? I've googled and found the awk command, is it something like that I should go for?
+
 #####################################
 2024-04-24
 Worked on the PhyloPhlan script
