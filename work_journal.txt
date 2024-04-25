@@ -12,7 +12,21 @@ For PhyloPhlan:
 - There are two different pipelines, supermatrix and supertree: What's the difference and which should be used?
 
 For the result of the HTSeq:
-- I need to filter the result SAM files, because I'm only interested in the RNA mappings to a feature (to be able to count and analyze). Any tips on how to proceed on that? I've googled and found the awk command, is it something like that I should go for?
+What I want to do for each bin and environment (RNA sample):
+1. Look into the HTSeq and select only the mappings which correspond to a feature (from the Prokka annotation)
+2. Count how many times each feature appears in each bin, and each environment
+3. Find more information about the features, at least all that the Prokka file says regarding ie function
+4. Summarize the results in a text file together with the proposed species name, looking something like:
+    Bin XX (proposed species: XX)
+      RNA XX (high/low oxygen)
+         Feature name: Feature count: UniProt ID: Function
+
+To do this, I've started filtering the HTSeq sam file to get only the found features.
+- There is a lot of information in the files. I for sure want to filter around if the feature is found or not,
+but do I also need to take ie mapping quality into consideration? In that case, what would be a reasonable threshold?
+http://www.acgt.me/blog/2014/12/16/understanding-mapq-scores-in-sam-files-does-37-42
+https://samtools.github.io/hts-specs/SAMtags.pdf
+https://www.samformat.info/sam-format-flag
 
 #####################################
 2024-04-24
