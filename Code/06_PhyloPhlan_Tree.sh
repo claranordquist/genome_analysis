@@ -4,7 +4,7 @@
 #SBATCH -M snowy
 #SBATCH -p core
 #SBATCH -n 2
-#SBATCH -t 06:00:00
+#SBATCH -t 02:00:00
 #SBATCH -J phylogeny
 #SBATCH --mail-type=ALL
 #SBATCH --mail-user clara.nordquist.1217@student.uu.se
@@ -28,14 +28,12 @@
 # --configs_folder Path to the folder containing the configuration files
 # --diversity The expected diversity of the phylogeny
 
-# ASSIGN SGBS: To assign closest species to each bin
-# Syntax: phylophlan_assign_sgbs.py -i <input_folder> -o <output_prefix> -d <database> --database_folder <database_folder> -n <how many hits>
-# -n Default is 10
-
 # DRAW METAGENOMICS: To create heatmaps for the assigned SGBS
 # Syntax: phylophlan_draw_metagenomic.py -i <sgbs input> -o <output_name>
 
 ######################################
+# Must be in this folder to run
+cd /proj/uppmax2024-2-7/Genome_Analysis/conda_envs
 
 # Defining the folders
 INPUT_BINS=/home/claran/genome_analysis/Analyses/03_Binning/Selected_bins
@@ -52,6 +50,3 @@ conda activate phylophlan
 # PhyloPhlan: Create a phylogenetic tree
 phylophlan -i $INPUT_BINS --output_folder $OUTPUT_FOLDER -d SGB.Jan21 --databases_folder $DATABASES \
 -f supermatrix_nt.cfg --configs_folder $CONFIG_FOLDER --diversity low
-
-# Assign SGBS: Find the most probable species for each bin
-phylophlan_assign_sgbs -i $INPUT_BINS -o $OUTPUT_FOLDER -d SGB.Jan21 --database_folder $DATABASES
