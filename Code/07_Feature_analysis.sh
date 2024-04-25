@@ -25,18 +25,13 @@ OUTPUT_FOLDER=/home/claran/genome_analysis/Analyses/07_Feature_analysis
 # To simplify filtering, only features that haven't beem mapped start with "__".
 # We thus only have to select for the lines that don't contain the pattern "__" and the last column "XF"
 
-for SAMPLE in $INPUT_HTSEQ/*
-do
-  grep -v "__" | grep "XF" > $OUTPUT_FOLDER/${SAMPLE}_filtered.txt
-done
-
 # STEP 2: Count the number of times each feature appears
 # We'll do this by first sorting the lines based on the last column ("XF"), and then counting the number of unique elements
 # awk '{print $NF}' prints only last column $NF, as that is what we're interested in
 # This so that we can sort based on the feature ID
 # uniq -c counts the number of unique elements
 
-for SAMPLE in $OUTPUT_FOLDER/*
+for SAMPLE in $INPUT_HTSEQ/*
 do
-  awk '{print $NF}' $SAMPLE | uniq -c > ${basename -s .txt $SAMPLE}_stats.txt
+  grep -v "__" $SAMPLE | grep "XF" | awk '{print $NF}' | uniq -c > ${basename -s .txt $SAMPLE}_stats.txt
 done
