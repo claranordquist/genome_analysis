@@ -5,7 +5,7 @@
 #SBATCH -p core
 #SBATCH -n 2
 #SBATCH -t 02:00:00
-#SBATCH -J phylogeny
+#SBATCH -J phylogeny_tree
 #SBATCH --mail-type=ALL
 #SBATCH --mail-user clara.nordquist.1217@student.uu.se
 #SBATCH --output=%x.%j.out
@@ -27,9 +27,6 @@
 # -f The configuration file to load
 # --configs_folder Path to the folder containing the configuration files
 # --diversity The expected diversity of the phylogeny
-
-# DRAW METAGENOMICS: To create heatmaps for the assigned SGBS
-# Syntax: phylophlan_draw_metagenomic.py -i <sgbs input> -o <output_name>
 
 ######################################
 # Must be in this folder to run
