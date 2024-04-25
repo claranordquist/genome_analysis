@@ -30,8 +30,18 @@ OUTPUT_FOLDER=/home/claran/genome_analysis/Analyses/07_Feature_analysis
 # awk '{print $NF}' prints only last column $NF, as that is what we're interested in
 # This so that we can sort based on the feature ID
 # uniq -c counts the number of unique elements
+# sed 's/["XF:Z:"]//g' takes away the "XF:Z:" from the ID name
+# sed 's/["XF:Z:"]//g' takes away the "XF:Z:" from the ID name
 
 for SAMPLE in $INPUT_HTSEQ/*
 do
-  grep -v "__" $SAMPLE | grep "XF" | awk '{print $NF}' | uniq -c > $OUTPUT_FOLDER/$(basename -s .txt $SAMPLE)_stats.txt
+  grep -v "__" $SAMPLE | grep "XF" | awk '{print $NF}' | uniq -c |\
+  sed 's/["XF:Z:"]//g' | sed -e 's/^[ \t]*//' \
+  > $OUTPUT_FOLDER/$(basename -s .txt $SAMPLE)_stats.txt
 done
+
+# STEP 3: Look into the gene IDs and what Prokka says about them
+# for BIN in 4 15 19 20
+# do
+#  awk 'print $'
+# done
