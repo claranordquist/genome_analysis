@@ -41,7 +41,7 @@ do
 done
 
 # STEP 3: Look into the gene IDs and what Prokka says about them
-# for BIN in 4 15 19 20
-# do
-#  awk 'print $'
-# done
+for BIN in 4 15 19 20
+do
+  awk 'print $2' Bin_${BIN}_SRR4342139_stats.txt
+done
