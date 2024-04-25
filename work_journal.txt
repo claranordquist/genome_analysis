@@ -2,33 +2,22 @@
 Work Journal: Genome Analysis project
 #####################################
 
-Working on right now: Step 5, step 6
-What's been done: RNA alignment and feature count
-Next step: Phylogeny, start to analyze the results
+Working on right now: Step 7, the total analyses
+What's been done: Read mapping, phylogeny
+Next step: Analyze the results, look over and compare different bins/environments/expressions
 
 #####################################
 Questions
-For PhyloPhlan:
-- There are two different pipelines, supermatrix and supertree: What's the difference and which should be used?
 
-For the result of the HTSeq:
-What I want to do for each bin and environment (RNA sample):
-1. Look into the HTSeq and select only the mappings which correspond to a feature (from the Prokka annotation)
-2. Count how many times each feature appears in each bin, and each environment
-3. Find more information about the features, at least all that the Prokka file says regarding ie function
-4. Summarize the results in a text file together with the proposed species name, looking something like:
-    Bin XX (proposed species: XX)
-      RNA XX (high/low oxygen)
-         Feature name: Feature count: UniProt ID: Function
-
-To do this, I've started filtering the HTSeq sam file to get only the found features.
-- There is a lot of information in the files. I for sure want to filter around if the feature is found or not,
-but do I also need to take ie mapping quality into consideration? In that case, what would be a reasonable threshold?
-http://www.acgt.me/blog/2014/12/16/understanding-mapq-scores-in-sam-files-does-37-42
-https://samtools.github.io/hts-specs/SAMtags.pdf
-https://www.samformat.info/sam-format-flag
 
 #####################################
+2024-04-25
+Ran the PhyloPhlan. Didn't do the tree, and the species assignment didn't give much.
+Should I run the heatmap?
+
+Started analyzing the data from the read counting, trying to connect the stats with the Prokka information.
+The idea is to get the statistics into python, so that I can analyze them there and draw plots etc
+
 2024-04-24
 Worked on the PhyloPhlan script
 The assignment to species seems to work, for the tree I need to specify the config file (supermatrix vs supertree)
