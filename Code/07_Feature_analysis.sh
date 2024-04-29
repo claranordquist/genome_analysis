@@ -34,7 +34,7 @@ do
   do
     COUNT=$(echo $LINE | awk '{print $1}')
     GENE_ID=$(echo $LINE | awk '{print $2}')
-    grep "$GENE_ID" $PROKKA | sed -e "s/^\(.*\)/$COUNT\t \1/" >> Bin_${BIN}_SRR4342139.tsv
+    grep "$GENE_ID" $PROKKA | sed -e "s/^\(.*\)/$COUNT\t \1/" >> Bin_${BIN}_SRR4342137.tsv
   done < $INPUT
 
   # Repeat the process for the second environment
