@@ -35,5 +35,5 @@ for sample in Bin_19_SRR4342137
 do
   grep -v "__" $SAMPLE | grep "XF" | awk '{print $NF}' | uniq -c |\
   sed 's/["XF:Z:"]//g' | sed -e 's/^[ \t]*//' \
-  > $OUTPUT_FOLDER/$(basename -s .txt $SAMPLE)_stats.txt
+  > $OUTPUT_FOLDER/$($SAMPLE)_stats.txt
 done
