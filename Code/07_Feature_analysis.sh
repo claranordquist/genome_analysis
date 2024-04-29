@@ -21,7 +21,7 @@ cd $WORK_FOLDER
 for BIN in 4 15 19 20
 do
   # Define the Prokka reference and the input stats file from above
-  PROKKA=$INPUT_PROKKA/Bin_${BIN}.tsv
+  PROKKA=$INPUT_PROKKA/Bin_${BIN}/Bin_${BIN}.tsv
   INPUT=Bin_${BIN}_SRR4342137_stats.txt
 
   # Create an output tsv file and add a header
