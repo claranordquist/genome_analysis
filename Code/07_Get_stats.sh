@@ -35,6 +35,7 @@ for SAMPLE in $INPUT_HTSEQ/Bin_19_SRR4342137
 do
   # grep -v "__" $SAMPLE | grep "XF" | awk '{print $NF}' | uniq -c |\
   # sed 's/["XF:Z:"]//g' | sed -e 's/^[ \t]*//' \
-  grep -v "__" $SAMPLE | grep "XF" | awk '{print $NF}' | uniq -c \
-  > $OUTPUT_FOLDER/Bin_19_test_stats.txt
+  grep -v "__" $SAMPLE | grep "XF" | awk '{print $NF}' | uniq -c |\
+  sed 's/["XF:Z:"]//g' | sed -e 's/^[ \t]*//' \
+  > $OUTPUT_FOLDER/Bin_19_test_stats_withoutXF.txt
 done
