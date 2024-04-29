@@ -20,32 +20,23 @@ cd $WORK_FOLDER
 
 for BIN in 4 15 19 20
 do
-  # Define the Prokka reference and the input stats file from above
-  PROKKA=$INPUT_PROKKA/Bin_${BIN}/Bin_${BIN}.tsv
-  INPUT=Bin_${BIN}_SRR4342137_stats.txt
-
-  # Create an output tsv file and add a header
-  echo 'Count\tGene_ID\tftype\tlength_bp\tgene\tEC_number\tCOG\tproduct' > Bin_${BIN}_SRR4342137.tsv
-
-  # Read the stats file, line by line
-  # Save the count and gene id, then look in the prokka file and collect the matching entries
-  # Write it all to the tsv outfile
-  while IFS= read -r LINE
+  for ENV in SRR4342137 SRR4342139
   do
-    COUNT=$(echo $LINE | awk '{print $1}')
-    GENE_ID=$(echo $LINE | awk '{print $2}')
-    grep "$GENE_ID" $PROKKA | sed -e "s/^\(.*\)/$COUNT\t \1/" >> Bin_${BIN}_SRR4342137.tsv
-  done < $INPUT
-
-  # Repeat the process for the second environment
-  INPUT=Bin_${BIN}_SRR4342139_stats.txt
-
-  echo 'Count\tGene_ID\tftype\tlength_bp\tgene\tEC_number\tCOG\tproduct' > Bin_${BIN}_SRR4342139.tsv
-
-  while IFS= read -r LINE
-  do
-    COUNT=$(echo $LINE | awk '{print $1}')
-    GENE_ID=$(echo $LINE | awk '{print $2}')
-    grep "$GENE_ID" $PROKKA | sed -e "s/^\(.*\)/$COUNT\t \1/" >> Bin_${BIN}_SRR4342139.tsv
-  done < $INPUT
+    # Define the Prokka reference and the input stats file from above
+    PROKKA=$INPUT_PROKKA/Bin_${BIN}/Bin_${BIN}.tsv
+    INPUT=Bin_${BIN}_${ENV}_stats.txt
+  
+    # Create an output tsv file and add a header
+    echo 'Count\tGene_ID\tftype\tlength_bp\tgene\tEC_number\tCOG\tproduct' > Bin_${BIN}_${ENV}.tsv
+  
+    # Read the stats file, line by line
+    # Save the count and gene id, then look in the prokka file and collect the matching entries
+    # Write it all to the tsv outfile
+    while IFS= read -r LINE
+    do
+      COUNT=$(echo $LINE | awk '{print $1}')
+      GENE_ID=$(echo $LINE | awk '{print $2}')
+      grep "$GENE_ID" $PROKKA | sed -e "s/^\(.*\)/$COUNT\t \1/" >> Bin_${BIN}_${ENV}.tsv
+    done < $INPUT
+    done
 done
