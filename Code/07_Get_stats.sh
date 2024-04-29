@@ -31,7 +31,7 @@ OUTPUT_FOLDER=/home/claran/genome_analysis/Analyses/07_Feature_analysis
 # sed -e 's/^[ \t]*// takes away the empty spaces in front
 
 # for SAMPLE in $INPUT_HTSEQ/*
-for sample in Bin_19_SRR4342137
+for sample in $INPUT_HTSEQ/Bin_19_SRR4342137
 do
   grep -v "__" $SAMPLE | grep "XF" | awk '{print $NF}' | uniq -c |\
   sed 's/["XF:Z:"]//g' | sed -e 's/^[ \t]*//' \
