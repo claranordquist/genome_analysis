@@ -11,6 +11,12 @@ Questions
 
 
 #####################################
+2024-04-29
+Debugged the scripts for getting the statistics, because they weren't working for one of the bins
+(but that's solved now hopefully)
+
+Started on the python script for visualizing the data, managed to get the data reading to work
+
 2024-04-25
 Ran the PhyloPhlan. Didn't do the tree, and the species assignment didn't give much.
 Why? Because the database it used is mainly based on human samples, so it's not very surprising that our organisms couldn't be found.
