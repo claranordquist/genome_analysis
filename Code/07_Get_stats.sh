@@ -20,7 +20,7 @@ OUTPUT_FOLDER=/home/claran/genome_analysis/Analyses/07_Feature_analysis
 # The output file from HTSeq is a sam file with a lot of information.
 # We're most interested in the last piece of information, starting with "XF". It states the ID of the matching feature, or ie __no_feature
 # To simplify filtering, only features that haven't beem mapped start with "__".
-# We thus only have to select for the lines that don't contain the pattern "__" and the last column "XF"
+# We thus only have to select for the lines that don't contain the pattern "__" and have the last column "XF"
 
 # STEP 2: Count the number of times each feature appears
 # We'll do this by first sorting the lines based on the last column ("XF"), and then counting the number of unique elements
@@ -28,9 +28,10 @@ OUTPUT_FOLDER=/home/claran/genome_analysis/Analyses/07_Feature_analysis
 # This so that we can sort based on the feature ID
 # uniq -c counts the number of unique elements
 # sed 's/["XF:Z:"]//g' takes away the "XF:Z:" from the ID name
-# sed 's/["XF:Z:"]//g' takes away the "XF:Z:" from the ID name
+# sed -e 's/^[ \t]*// takes away the empty spaces in front
 
-for SAMPLE in $INPUT_HTSEQ/*
+# for SAMPLE in $INPUT_HTSEQ/*
+for sample in Bin_19_SRR4342137
 do
   grep -v "__" $SAMPLE | grep "XF" | awk '{print $NF}' | uniq -c |\
   sed 's/["XF:Z:"]//g' | sed -e 's/^[ \t]*//' \
