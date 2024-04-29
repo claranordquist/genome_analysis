@@ -38,6 +38,6 @@ do
     SAMPLE=$INPUT_HTSEQ/Bin_${BIN}_${ENV}
     grep -v "__" $SAMPLE | grep "XF" | awk '{print $NF}' | uniq -c |\
     sed 's/XF:Z://' | sed -e 's/^[ \t]*//' \
-    > $OUTPUT_FOLDER/Bin_${BIN}_${ENV}_stats.txt.txt
+    > $OUTPUT_FOLDER/Bin_${BIN}_${ENV}_stats.txt
   done
 done
