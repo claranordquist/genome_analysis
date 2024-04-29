@@ -31,8 +31,13 @@ OUTPUT_FOLDER=/home/claran/genome_analysis/Analyses/07_Feature_analysis
 # sed -e 's/^[ \t]*// takes away the empty spaces in front
 
 for SAMPLE in $INPUT_HTSEQ/*
+for BIN in 4 15 19 20
 do
-  grep -v "__" $SAMPLE | grep "XF" | awk '{print $NF}' | uniq -c |\
-  sed 's/XF:Z://' | sed -e 's/^[ \t]*//' \
-  > $OUTPUT_FOLDER/${SAMPLE}_stats.txt.txt
+  for ENV in SRR4342137 SRR4342139
+  do
+    SAMPLE=$INPUT_HTSEQ/Bin_${BIN}_${ENV}
+    grep -v "__" $SAMPLE | grep "XF" | awk '{print $NF}' | uniq -c |\
+    sed 's/XF:Z://' | sed -e 's/^[ \t]*//' \
+    > $OUTPUT_FOLDER/Bin_${BIN}_${ENV}_stats.txt.txt
+  done
 done
