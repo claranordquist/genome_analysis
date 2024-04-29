@@ -30,7 +30,7 @@ OUTPUT_FOLDER=/home/claran/genome_analysis/Analyses/07_Feature_analysis
 # sed 's/["XF:Z:"]//g' takes away the "XF:Z:" from the ID name
 # sed -e 's/^[ \t]*// takes away the empty spaces in front
 
-# for SAMPLE in $INPUT_HTSEQ/*
+for SAMPLE in $INPUT_HTSEQ/*
 do
   grep -v "__" $SAMPLE | grep "XF" | awk '{print $NF}' | uniq -c |\
   sed 's/XF:Z://' | sed -e 's/^[ \t]*//' \
