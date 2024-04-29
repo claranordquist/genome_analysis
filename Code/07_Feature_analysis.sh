@@ -8,19 +8,20 @@
 # 3. Find more information about the features, at least all that the Prokka file says regarding ie function
 
 ######################################
-INPUT_HTSEQ=/home/claran/genome_analysis/Analyses/05_RNA_mapping/052_Read_counting
-# Bin_15_SRR4342137, Bin_15_SRR4342139
-# Bin_19_SRR4342137, Bin_19_SRR4342139
-# Bin_20_SRR4342137, Bin_20_SRR4342139
-# Bin_4_SRR4342137, Bin_4_SRR4342139
+WORK_FOLDER=/home/claran/genome_analysis/Analyses/07_Feature_analysis
+# Bin_15_SRR4342137_stats.txt, Bin_15_SRR4342139_stats.txt
+# Bin_19_SRR4342137_stats.txt, Bin_19_SRR4342139_stats.txt
+# Bin_20_SRR4342137_stats.txt, Bin_20_SRR4342139_stats.txt
+# Bin_4_SRR4342137_stats.txt, Bin_4_SRR4342139_stats.txt
 INPUT_PROKKA=/home/claran/genome_analysis/Analyses/04_Annotation
-OUTPUT_FOLDER=/home/claran/genome_analysis/Analyses/07_Feature_analysis
 
 # STEP 3: Look into the gene IDs and what Prokka says about them
+cd $WORK_FOLDER
+
 for BIN in 4 15 19 20
 do
   # Define the Prokka reference and the input stats file from above
-  PROKKA=Bin_${BIN}.tsv
+  PROKKA=$INPUT_PROKKA/Bin_${BIN}.tsv
   INPUT=Bin_${BIN}_SRR4342137_stats.txt
 
   # Create an output tsv file and add a header
