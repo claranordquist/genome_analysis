@@ -8,9 +8,13 @@ Next step: Analyze the results, look over and compare different bins/environment
 
 #####################################
 Questions
-
+For the visualization and feature analysis: 
+- Which feature about the proteins should I use to compare the environments? EC-number or COG or something else?
 
 #####################################
+2024-05-01
+Worked on the Python script to read the data and pool the samples according to environment
+
 2024-04-29
 Debugged the scripts for getting the statistics, because they weren't working for one of the bins
 (but that's solved now hopefully)
