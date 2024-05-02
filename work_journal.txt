@@ -3,15 +3,20 @@ Work Journal: Genome Analysis project
 #####################################
 
 Working on right now: Step 7, the total analyses
-What's been done: Read mapping, phylogeny
+What's been done: EggNOG-mapper, to get a more informative annotation
 Next step: Analyze the results, look over and compare different bins/environments/expressions
 
 #####################################
 Questions
-For the visualization and feature analysis: 
-- Which feature about the proteins should I use to compare the environments? EC-number or COG or something else?
+
 
 #####################################
+2024-05-02
+Made a heatmap for the last part of the mandatory analyses (expression analysis)
+
+Wrote a script for EggNOG-Mapper and tried to run it, to get a more informative annotation of the different bins
+I will then use it to analyze the function of the different features found in the RNA mapping for each bin
+
 2024-05-01
 Worked on the Python script to read the data and pool the samples according to environment
 
