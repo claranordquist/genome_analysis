@@ -45,6 +45,6 @@ create_dbs.py -m diamond --dbname bacteria --taxa Bacteria
 for BIN in 15
 do
   INPUT=$INPUT_FOLDER/Bin_${BIN}
-  emapper.py --itype CDS -i $INPUT/Bin_${BIN}.faa --output_dir $OUTPUT_FOLDER --cpu 0 --decorate_gff $INPUT/Bin_${BIN}_without_fasta.gff
+  emapper.py --itype CDS -i $INPUT/Bin_${BIN}.faa --data_dir $EGGNOG_DATA_ROOT -o Bin_${BIN} --output_dir $OUTPUT_FOLDER --cpu 0 --decorate_gff $INPUT/Bin_${BIN}_without_fasta.gff
 done
 
