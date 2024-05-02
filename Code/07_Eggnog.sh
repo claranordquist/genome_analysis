@@ -45,7 +45,7 @@ module load bioinfo-tools eggNOG-mapper/2.1.9
 for BIN in 15
 do
   INPUT=$INPUT_FOLDER/Bin_${BIN}
-  emapper.py --itype CDS -i $INPUT/Bin_${BIN}.faa --data_dir $EGGNOG_DATA_ROOT -o Bin_${BIN} --output_dir $OUTPUT_FOLDER \
+  emapper.py --itype protein -i $INPUT/Bin_${BIN}.faa --data_dir $EGGNOG_DATA_ROOT -o Bin_${BIN} --output_dir $OUTPUT_FOLDER \
   --cpu 0 --decorate_gff $INPUT/Bin_${BIN}_without_fasta.gff --override
 done
 
