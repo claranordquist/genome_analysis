@@ -38,7 +38,7 @@ OUTPUT_FOLDER=/home/claran/genome_analysis/Analyses/07_Feature_analysis/071_Anno
 module load bioinfo-tools eggNOG-mapper 2.1.9
 
 # Load the database
-create_dbs.py -m diamond --dbname bacteria --taxa Bacteria
+# create_dbs.py -m diamond --dbname bacteria --taxa Bacteria
 
 # Run it for the bins
 # for BIN in 15 20 4 19
