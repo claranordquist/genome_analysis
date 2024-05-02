@@ -35,7 +35,7 @@ INPUT_FOLDER=/home/claran/genome_analysis/Analyses/04_Annotation
 OUTPUT_FOLDER=/home/claran/genome_analysis/Analyses/07_Feature_analysis/071_Annotation
 
 # Module loading
-module load bioinfo-tools eggNOG-mapper 2.1.9
+module load bioinfo-tools eggNOG-mapper/2.1.9
 
 # Load the database
 # create_dbs.py -m diamond --dbname bacteria --taxa Bacteria
