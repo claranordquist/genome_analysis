@@ -8,9 +8,26 @@ Next step: Analyze the results, look over and compare different bins/environment
 
 #####################################
 Questions
+For the heatmap of the gene expression:
+- It really isn't very informative when I try to include all >1000 genes. Should I still do it, or just show a subset?
+- Should I normalize the RNA reads? I mean if one environment has many more reads, would it really be representative to just compare the count numbers?
 
+For the report in general:
+- Do I have to cite the papers of the softwares? (like they suggest in many manuals when the software is used)
+- Is there any special reference system that I should use?
+
+For the EggNOG-mapper:
+- What values are suitable? KEGG seems a bit complicated. Maybe GO?
 
 #####################################
+2024-05-03
+Worked on the Wiki and extra questions.
+
+Stared looking into the EggNOG-mapper results. Could maybe use the GO assignments?
+GO https://www.ebi.ac.uk/QuickGO/
+Respiration (anaerobic/aerobic)
+Carbohydrate metabolic process
+
 2024-05-02
 Made a heatmap for the last part of the mandatory analyses (expression analysis)
 
