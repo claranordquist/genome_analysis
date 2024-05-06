@@ -34,6 +34,9 @@
 # Unsorted BAM --> Sorted BAM: samtools sort [options] input.sam
 # -o <output.bam> Where to output the results
 
+# Looking at the stats
+# samtools flagstat (later on)
+
 ######################################
 
 # Defining the folders
@@ -41,7 +44,7 @@ INPUT_DNA=/home/claran/genome_analysis/Data/Raw_data/DNA_trimmed
 # SRR4342129_1.paired.trimmed.fastq.gz, SRR4342129_2.paired.trimmed.fastq.gz
 # SRR4342133_1.paired.trimmed.fastq.gz, SRR4342133_2.paired.trimmed.fastq.gz
 INDEXED_BINS=/home/claran/genome_analysis/Analyses/05_RNA_mapping/051_Indexed_bins
-OUTPUT_FOLDER=/home/claran/genome_analysis/Analyses/07_Feature_analysis/072_DNA_mapping
+OUTPUT_FOLDER=/home/claran/genome_analysis/Analyses/07_Feature_analysis/074_DNA_mapping
 
 # Module loading
 module load bioinfo-tools bwa samtools
@@ -51,11 +54,9 @@ for BIN in 15 20 4 19
 do
     bwa mem -t 2 $INDEXED_BINS/Bin_${BIN}.fa $INPUT_DNA/SRR4342129_1.paired.trimmed.fastq.gz $INPUT_DNA/SRR4342129_2.paired.trimmed.fastq.gz | \
     samtools view -b | \
-    samtools sort | \
-    samtools flagstat > $OUTPUT_FOLDER/Bin_${BIN}_SRR4342129_flagstats
+    samtools sort -o $OUTPUT_FOLDER/Bin_${BIN}_SRR4342129_sorted.bam
     
     bwa mem -t 2 $INDEXED_BINS/Bin_${BIN}.fa $INPUT_DNA/SRR4342133_1.paired.trimmed.fastq.gz $INPUT_DNA/SRR4342133_2.paired.trimmed.fastq.gz | \
     samtools view -b | \
-    samtools sort -o | \
-    samtools flagstat > $OUTPUT_FOLDER/Bin_${BIN}_SRR4342129_flagstats
+    samtools sort -o $OUTPUT_FOLDER/Bin_${BIN}_SRR4342133_sorted.bam
 done

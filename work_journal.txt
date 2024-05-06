@@ -20,6 +20,14 @@ For the EggNOG-mapper:
 - What values are suitable? KEGG seems a bit complicated. Maybe GO?
 
 #####################################
+2024-05-06
+Worked on the extra questions
+
+Mapped the DNA reads to the bins
+
+Updated the get_stats workflow things to match the new files from the EggNOG annotation (instead of prokka)
+Worked on the Python plots to visualize the difference in COG categories between different samples
+
 2024-05-03
 Worked on the Wiki and extra questions.
 
