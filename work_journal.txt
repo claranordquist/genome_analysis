@@ -2,24 +2,25 @@
 Work Journal: Genome Analysis project
 #####################################
 
-Working on right now: Step 7, the total analyses
-What's been done: EggNOG-mapper, to get a more informative annotation
-Next step: Analyze the results, look over and compare different bins/environments/expressions
+Working on right now: Step 7, the total analyses. Writing the wiki.
+What's been done: Tried to do the abundance bwa mapping, finished the python plotting stuff more or less
+Next step: Analyzing the results of step 7 and the abundance, finishing the wiki
 
 #####################################
 Questions
 For the heatmap of the gene expression:
-- It really isn't very informative when I try to include all >1000 genes. Should I still do it, or just show a subset?
-- Should I normalize the RNA reads? I mean if one environment has many more reads, would it really be representative to just compare the count numbers?
-
-For the report in general:
-- Do I have to cite the papers of the softwares? (like they suggest in many manuals when the software is used)
 - Is there any special reference system that I should use?
 
-For the EggNOG-mapper:
-- What values are suitable? KEGG seems a bit complicated. Maybe GO?
-
 #####################################
+2024-05-07
+For step 7:
+- I normalized the data both for the heatmap and the bar plots by the total number of reads (in total) to get the relative count numbers instead of absolute
+- I choose to only show the COG C genes for the heatmap (involved in energy production)
+- I finished the python script? (more or less)
+- I ran the bin abundance analysis AGAIN because it ran out of memory (hopefully it works now)
+
+Otherwise, I continued to work on the wiki
+
 2024-05-06
 Worked on the extra questions
 
