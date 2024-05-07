@@ -54,9 +54,9 @@ for BIN in 15 20 4 19
 do
     bwa mem -t 2 $INDEXED_BINS/Bin_${BIN}.fa $INPUT_DNA/SRR4342129_1.paired.trimmed.fastq.gz $INPUT_DNA/SRR4342129_2.paired.trimmed.fastq.gz | \
     samtools view -b | \
-    samtools sort -o $OUTPUT_FOLDER/Bin_${BIN}_SRR4342129_sorted.bam
+    samtools sort | samtools flagstat > $OUTPUT_FOLDER/Bin_${BIN}_SRR4342129_stats.txt
     
     bwa mem -t 2 $INDEXED_BINS/Bin_${BIN}.fa $INPUT_DNA/SRR4342133_1.paired.trimmed.fastq.gz $INPUT_DNA/SRR4342133_2.paired.trimmed.fastq.gz | \
     samtools view -b | \
-    samtools sort -o $OUTPUT_FOLDER/Bin_${BIN}_SRR4342133_sorted.bam
+    samtools sort | samtools flagstat > $OUTPUT_FOLDER/Bin_${BIN}_SRR4342133_stats.txt
 done
