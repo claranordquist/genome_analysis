@@ -4,7 +4,7 @@
 #SBATCH -M snowy
 #SBATCH -p core
 #SBATCH -n 2
-#SBATCH -t 04:00:00
+#SBATCH -t 08:00:00
 #SBATCH -J DNA_alignment
 #SBATCH --mail-type=ALL
 #SBATCH --mail-user clara.nordquist.1217@student.uu.se
