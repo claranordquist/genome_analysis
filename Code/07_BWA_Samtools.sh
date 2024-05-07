@@ -50,13 +50,14 @@ OUTPUT_FOLDER=/home/claran/genome_analysis/Analyses/07_Feature_analysis/074_DNA_
 module load bioinfo-tools bwa samtools
 
 # Aligning each bin with the two different RNA reads
-for BIN in 15 20 4 19
+# for BIN in 15 20 4 19
+for BIN in 15 20
 do
     bwa mem -t 2 $INDEXED_BINS/Bin_${BIN}.fa $INPUT_DNA/SRR4342129_1.paired.trimmed.fastq.gz $INPUT_DNA/SRR4342129_2.paired.trimmed.fastq.gz | \
     samtools view -b | \
-    samtools sort | samtools flagstat > $OUTPUT_FOLDER/Bin_${BIN}_SRR4342129_stats.txt
+    samtools sort -o $OUTPUT_FOLDER/Bin_${BIN}_SRR4342129_sorted.bam
     
     bwa mem -t 2 $INDEXED_BINS/Bin_${BIN}.fa $INPUT_DNA/SRR4342133_1.paired.trimmed.fastq.gz $INPUT_DNA/SRR4342133_2.paired.trimmed.fastq.gz | \
     samtools view -b | \
-    samtools sort | samtools flagstat > $OUTPUT_FOLDER/Bin_${BIN}_SRR4342133_stats.txt
+    samtools sort -o $OUTPUT_FOLDER/Bin_${BIN}_SRR4342133_sorted.bam
 done
