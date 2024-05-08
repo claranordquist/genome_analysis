@@ -8,10 +8,12 @@ Next step: Analyzing the results of step 7 and the abundance, finishing the wiki
 
 #####################################
 Questions
-For the heatmap of the gene expression:
 - Is there any special reference system that I should use?
 
 #####################################
+2024-05-08
+Fixed the read mapping and did a plot for the abundance analysis
+
 2024-05-07
 For step 7:
 - I normalized the data both for the heatmap and the bar plots by the total number of reads (in total) to get the relative count numbers instead of absolute
