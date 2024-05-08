@@ -4,7 +4,7 @@
 #SBATCH -M snowy
 #SBATCH -p core
 #SBATCH -n 2
-#SBATCH -t 08:00:00
+#SBATCH -t 04:00:00
 #SBATCH -J DNA_alignment
 #SBATCH --mail-type=ALL
 #SBATCH --mail-user clara.nordquist.1217@student.uu.se
@@ -51,7 +51,7 @@ module load bioinfo-tools bwa samtools
 
 # Aligning each bin with the two different RNA reads
 # for BIN in 15 20 4 19
-for BIN in 15 20
+for BIN in 4 19
 do
     bwa mem -t 2 $INDEXED_BINS/Bin_${BIN}.fa $INPUT_DNA/SRR4342129_1.paired.trimmed.fastq.gz $INPUT_DNA/SRR4342129_2.paired.trimmed.fastq.gz | \
     samtools view -b | \
