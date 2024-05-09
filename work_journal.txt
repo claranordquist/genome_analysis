@@ -2,15 +2,20 @@
 Work Journal: Genome Analysis project
 #####################################
 
-Working on right now: Step 7, the total analyses. Writing the wiki.
-What's been done: Tried to do the abundance bwa mapping, finished the python plotting stuff more or less
-Next step: Analyzing the results of step 7 and the abundance, finishing the wiki
+Working on right now: Writing the wiki.
+What's been done: 
+Next step: 
 
 #####################################
 Questions
 - Is there any special reference system that I should use?
 
+- Questions about the questions: 13, 28, 30, 31, 33, 34, homology search (35, 36, 37), 42, 43, 44, 50
+
 #####################################
+2024-05-09
+Worked on the wiki and extra questions
+
 2024-05-08
 Fixed the read mapping and did a plot for the abundance analysis
 
