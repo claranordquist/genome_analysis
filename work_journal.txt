@@ -2,17 +2,18 @@
 Work Journal: Genome Analysis project
 #####################################
 
-Working on right now: Writing the wiki.
-What's been done: 
+Working on right now: Presentation
+What's been done: Wiki
 Next step: 
 
 #####################################
 Questions
-- Is there any special reference system that I should use?
 
-- Questions about the questions: 13, 28, 30, 31, 33, 34, homology search (35, 36, 37), 42, 43, 44, 50
 
 #####################################
+2024-05-14 - 2024-05-16
+Worked on the wiki
+
 2024-05-09
 Worked on the wiki and extra questions
 

@@ -14,6 +14,7 @@
 
 # CheckM
 # To check the quality of the binning
+
 # I'll use the lineage_wf. Why? Because we're only interested in seeing what we can find (not in specific taxa really)
 
 # Input: fasta files for all bins (cannot contain . in the file names !)

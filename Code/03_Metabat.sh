@@ -18,8 +18,6 @@
 # Input: fasta file with the metagenome contigs
 # Output: fasta files for all bins
 
-# The output file names have to be renamed to not contain any . so that it can be used in the next software without any problems
-
 # Syntax: metabat -i <input contigs in fasta file> -o <output bins in fasta>
 # By default, it uses all cores
 
@@ -33,3 +31,11 @@ OUTPUT_FOLDER=/home/claran/genome_analysis/Analyses/03_Binning/031_Metagenome_bi
 module load bioinfo-tools MetaBat/2.12.1
 
 metabat -i $INPUT_FOLDER/final.contigs.fa -o $OUTPUT_FOLDER
+
+# Rename the output so that it doesn't contain . but _ instead
+cd $OUTPUT_FOLDER
+
+for BIN in *.fa
+do
+	mv $BIN ${BIN/./_}
+done

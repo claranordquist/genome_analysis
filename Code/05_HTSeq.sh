@@ -12,14 +12,16 @@
 
 ######################################
 
-# HTSeq (https://htseq.readthedocs.io/en/release_0.11.1/count.html)
+# HTSeq
 # The idea is to use a combination of the annotation and the RNA alignment, to see from which bins the different genes are expressed
 
 # The gff files from Prokka must be edited to remove the fasta sequences at the end of the file for it to work with HTSeq
 # I did this with the script remove_fasta.sh found in /home/claran/genome_analysis/Analyses/04_Annotation
 
-# I also need to create index files for the sorted BAMs (because I forget that in the previous step oops)
-# That's done with samtools
+# Samtools
+# Create index files for the sorted BAMs
+
+
 # Syntax: samtools index [options] <sorted bam>
 # -o The output file, in .bai format
 

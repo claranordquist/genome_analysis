@@ -18,9 +18,8 @@
 # Input: 2 compressed fastq files, corresponding to one paired-end read
 # Output: 4 compressed fastq files, corresponding to 2 paired outputs and 2 "unpaired" outputs
  
-# We have paired-end reads
-# The program uses several different trimming steps. Here, we'll use:
-# ILLUMINACLIP: Cut adapters. Needs an adapter file (TruSeq3-PE.fa) depending on the type of Illumina read (here Illumina HiSeq 2000). We'll use the cutoff thresholds of 2:30:10 (mismatches, pair-end score, single-end score)
+# The program uses several different trimming steps. Here:
+# ILLUMINACLIP: Cut adapters. Needs an adapter file (TruSeq3-PE.fa) depending on the type of Illumina read (here Illumina HiSeq 2000). I'll use the cutoff thresholds of 2:30:10 (mismatches, pair-end score, single-end score)
 # LEADING: Takes away bases at the start, below a quality threshold. From the paper method, they use Q<30.
 # TRAILING: Takes away bases at the end, below a quality threshold. From the paper method, they use Q<30.
 # SLIDINGWINDOW: Trims with a sliding window, cutting when the average quality falls below a given threshold. Needs a window size and min quality. In the paper, they state that they remove reads with "three or more N's with an average quality score less than Q20"

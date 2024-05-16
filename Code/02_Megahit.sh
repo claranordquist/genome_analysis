@@ -14,19 +14,12 @@
 
 # Megahit
 # To assemble the metagenome
-# From the paper: "Metagenomic reads from all six samples were pooled, assembled, and binned using previously described methods. Quality-filtered reads were assembled with IDBA-UD ... using the following settings: -mink 65, -maxk 105, step 10, -pre_correction, -seed_kmer 55. 
 
+# From the paper: "Using the following settings: -mink 65, -maxk 105, step 10, -pre_correction, -seed_kmer 55. 
 # Here, this corresponds to:
 # --k-min 65
 # --k-max 105
 # --k-step 10
-
-# I'll also specify that two threads should be used by
-# -t 2
-
-# I cannot find the corresponding megahit parameters for
-# precorrection (perform pre-correction before assembly)
-# seed k-mer (seed kmer size for alignment)
 
 # Input: fastq files from the trimmed DNA reads
 # Output: fasta file with contigs

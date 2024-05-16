@@ -3,7 +3,7 @@
 ######################################
 # Script to process the outputs of HTSeq.
 # What we want to do for each bin and environment (RNA sample):
-# 1. Look into the HTSeq and select only the mappings which correspond to a feature (from the EggNOG-mapper annotation) (script 071_get_stats.sh)
+# 1. Look into the HTSeq and select only the mappings which correspond to a feature (from the EggNOG-mapper annotation) (script 07_Get_stats.sh)
 # 2. Count how many times each feature appears in each bin, and each environment (script 071_get_stats.sh)
 # 3. Find more information about the features, at least all that the EggNOG file says regarding ie function
 

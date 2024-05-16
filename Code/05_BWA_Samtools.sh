@@ -12,14 +12,11 @@
 
 ######################################
 
-# https://www.youtube.com/watch?v=1wcFavYt6uU
-# https://figshare.com/articles/dataset/Supplemental_files_and_figures_for_Thrash_et_al_2017/12055989?file=22154721
-
-# BWA (https://bio-bwa.sourceforge.net/bwa.shtml)
+# BWA
 # To align the RNA reads to the bin genomes
 # Chosen bins: 15, 20, 4, 19
 
-# Samtools (https://github.com/samtools/samtools)
+# Samtools
 # To convert the alignment files (sam) to less memory-intensive bam files
 
 # [First, we need to index the reference files (= the bins) (BWA)]
@@ -32,7 +29,6 @@
 # Syntax
 # Aligning
 # bwa mem [options] reference.fa read1.fq read2.fq
-# -t 2 Use 2 threads (because we've asked for two cores)
 
 # Sorting and converting to BAM
 # SAM --> BAM: samtools view [options]

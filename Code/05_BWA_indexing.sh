@@ -2,12 +2,11 @@
 
 ######################################
 
-# BWA (https://bio-bwa.sourceforge.net/bwa.shtml)
+# BWA
 # To index the bin references, so that we can align the RNA with bwa
 # Chosen bins: 15, 20, 4, 19
 
 # Syntax
-# Indexing
 # bwa index reference.fa
 
 ######################################

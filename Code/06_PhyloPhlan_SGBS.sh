@@ -12,10 +12,8 @@
 
 ######################################
 
-# PhyloPhlan (https://github.com/biobakery/phylophlan/wiki)
+# PhyloPhlan
 # We want to phylogenetically place the four organisms in our bins
-
-# We will use three commands: phylophlan, phylophlan_assign_sgbs, and phylophlan_draw_metagenomic
 
 # ASSIGN SGBS: To assign closest species to each bin
 # Syntax: phylophlan_assign_sgbs.py -i <input_folder> -o <output_prefix> -d <database> --database_folder <database_folder> -n <how many hits>

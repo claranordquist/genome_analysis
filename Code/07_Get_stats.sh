@@ -5,7 +5,7 @@
 # What we want to do for each bin and environment (RNA sample):
 # 1. Look into the HTSeq and select only the mappings which correspond to a feature (from the EggNOG-mapper annotation)
 # 2. Count how many times each feature appears in each bin, and each environment
-# 3. Find more information about the features, at least all that the EggNOG-mapper file says regarding ie function (07_Feature_analysis)
+# 3. Find more information about the features, at least all that the EggNOG-mapper file says regarding ie function (07_Feature_analysis.sh)
 
 ######################################
 INPUT_HTSEQ=/home/claran/genome_analysis/Analyses/05_RNA_mapping/052_Read_counting

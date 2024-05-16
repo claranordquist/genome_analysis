@@ -5,7 +5,7 @@
 #SBATCH -p core
 #SBATCH -n 2
 #SBATCH -t 08:00:00
-#SBATCH -J annotation
+#SBATCH -J EggNOG_annotation
 #SBATCH --mail-type=ALL
 #SBATCH --mail-user clara.nordquist.1217@student.uu.se
 #SBATCH --output=%x.%j.out

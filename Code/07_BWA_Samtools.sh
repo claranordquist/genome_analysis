@@ -12,7 +12,7 @@
 
 ######################################
 
-# Samtools (https://github.com/samtools/samtools)
+# Samtools
 # To map the DNA reads to the bins to see the abundance of each bin in the two environments
 
 # [First, we need to index the reference files (= the bins) (BWA)] --> Already done in 05
@@ -26,7 +26,6 @@
 # Syntax
 # Aligning
 # bwa mem [options] reference.fa read1.fq read2.fq
-# -t 2 Use 2 threads (because we've asked for two cores)
 
 # Sorting and converting to BAM
 # SAM --> BAM: samtools view [options]
@@ -35,7 +34,7 @@
 # -o <output.bam> Where to output the results
 
 # Looking at the stats
-# samtools flagstat (later on)
+# samtools flagstat (manually afterwards)
 
 ######################################
 

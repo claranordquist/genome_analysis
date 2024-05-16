@@ -14,13 +14,12 @@
 
 # Quast
 # To evaluate the metagenome assembly
-# https://quast.sourceforge.net/docs/manual.html#sec2.4
 
 # Input: contigs from the metagenome assembly
 # Output: stats
 
-# Syntax: python metaquast.py contigs_1 contigs_2 ... -r reference_1,reference_2,reference_3,...
-# We'll run without references (because we have none)
+# Without references
+# Syntax: python metaquast.py contigs_1 contigs_2 ...
 ######################################
 
 # Defining the folders
